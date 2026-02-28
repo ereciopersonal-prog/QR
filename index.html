@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Generador QR Gratis</title>
+<meta name="description" content="Crea tu código QR gratis en segundos. Generador QR online fácil y rápido.">
+<style>
+body { font-family: Arial; text-align: center; padding: 40px; background: #f4f4f4; }
+input { width: 300px; padding: 10px; }
+button { padding: 10px 20px; margin-top: 10px; cursor: pointer; }
+img { margin-top: 20px; }
+.container { background: white; padding: 30px; border-radius: 10px; display: inline-block; }
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Generador de Código QR Gratis</h1>
+<p>Pega tu enlace y genera tu QR al instante.</p>
+
+<input type="text" id="url" placeholder="https://ejemplo.com"><br>
+<button onclick="generarQR()">Generar QR</button>
+
+<br>
+<img id="qr">
+</div>
+
+<script>
+function generarQR() {
+  var url = document.getElementById("url").value;
+  document.getElementById("qr").src =
+  "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + encodeURIComponent(url);
+}
+</script>
+
+</body>
+</html>
