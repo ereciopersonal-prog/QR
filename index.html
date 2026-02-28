@@ -2,37 +2,124 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Generador QR Gratis</title>
-<meta name="description" content="Crea tu código QR gratis en segundos. Generador QR online fácil y rápido.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generador de Código QR Gratis Online</title>
+<meta name="description" content="Generador de código QR gratis online. Crea tu QR en segundos para enlaces, WhatsApp, Instagram o cualquier URL. Rápido y fácil.">
+
 <style>
-body { font-family: Arial; text-align: center; padding: 40px; background: #f4f4f4; }
-input { width: 300px; padding: 10px; }
-button { padding: 10px 20px; margin-top: 10px; cursor: pointer; }
-img { margin-top: 20px; }
-.container { background: white; padding: 30px; border-radius: 10px; display: inline-block; }
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: #333;
+}
+
+.container {
+  background: white;
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+input {
+  width: 90%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 12px 20px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 8px;
+  background: #4e73df;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2e59d9;
+}
+
+img {
+  margin-top: 20px;
+}
+
+.download-btn {
+  display: none;
+  background: #1cc88a;
+}
+
+.content {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  text-align: left;
+}
 </style>
 </head>
+
 <body>
 
 <div class="container">
 <h1>Generador de Código QR Gratis</h1>
-<p>Pega tu enlace y genera tu QR al instante.</p>
+<p>Pega tu enlace y crea tu QR al instante.</p>
 
-<input type="text" id="url" placeholder="https://ejemplo.com"><br>
+<input type="text" id="url" placeholder="https://ejemplo.com">
+<br>
 <button onclick="generarQR()">Generar QR</button>
 
 <br>
 <img id="qr">
+
+<br>
+<button class="download-btn" id="downloadBtn" onclick="descargarQR()">Descargar QR</button>
+</div>
+
+<div class="content">
+<h2>¿Qué es un código QR?</h2>
+<p>Un código QR es un tipo de código de barras bidimensional que permite almacenar información como enlaces web, números de teléfono o textos. Al escanearlo con la cámara del móvil, el usuario accede directamente al contenido.</p>
+
+<h2>¿Cómo crear un código QR?</h2>
+<p>Simplemente pega tu enlace en el generador superior y pulsa el botón "Generar QR". En segundos tendrás tu código listo para descargar y compartir.</p>
+
+<h2>Usos del código QR</h2>
+<ul>
+<li>Compartir enlaces web</li>
+<li>Menús digitales para restaurantes</li>
+<li>Tarjetas de visita digitales</li>
+<li>Redes sociales como Instagram o WhatsApp</li>
+</ul>
 </div>
 
 <script>
 function generarQR() {
   var url = document.getElementById("url").value;
-  document.getElementById("qr").src =
-  "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + encodeURIComponent(url);
+  var qrImage = document.getElementById("qr");
+  qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + encodeURIComponent(url);
+  document.getElementById("downloadBtn").style.display = "inline-block";
+}
+
+function descargarQR() {
+  var link = document.createElement('a');
+  link.href = document.getElementById("qr").src;
+  link.download = "codigo-qr.png";
+  link.click();
 }
 </script>
 
 </body>
 </html>
-<!-- update -->
