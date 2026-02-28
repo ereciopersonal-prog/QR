@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Generador de Código QR para WhatsApp Gratis</title>
+<meta name="description" content="Crea un código QR para WhatsApp gratis. Genera un enlace directo con tu número y compártelo fácilmente.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+body{
+font-family:Arial;
+text-align:center;
+background:#f4f4f4;
+padding:20px;
+}
+.container{
+background:white;
+padding:30px;
+border-radius:10px;
+max-width:500px;
+margin:auto;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+input{
+padding:10px;
+width:80%;
+margin:10px 0;
+}
+button{
+padding:10px 20px;
+background:#25D366;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+button:hover{
+background:#1ebe5d;
+}
+#qrcode{
+margin-top:20px;
+}
+nav{
+margin-bottom:20px;
+}
+nav a{
+margin:0 10px;
+text-decoration:none;
+color:#333;
+font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<nav>
+<a href="index.html">Generador QR</a>
+<a href="qr-whatsapp.html">QR WhatsApp</a>
+</nav>
+
+<div class="container">
+<h1>Generador de Código QR para WhatsApp</h1>
+
+<p>Introduce tu número con prefijo internacional (ejemplo: 34600111222)</p>
+
+<input type="text" id="phone" placeholder="Tu número">
+
+<br>
+
+<button onclick="generateQR()">Generar QR</button>
+
+<div id="qrcode"></div>
+
+</div>
+
+<script>
+function generateQR(){
+document.getElementById("qrcode").innerHTML="";
+var phone=document.getElementById("phone").value;
+var url="https://wa.me/"+phone;
+new QRCode(document.getElementById("qrcode"),url);
+}
+</script>
+
+</body>
+</html>
+Create qr-whatsapp.html
