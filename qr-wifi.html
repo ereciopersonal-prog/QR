@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Generador de Código QR WiFi Gratis</title>
+<meta name="description" content="Crea un código QR para compartir tu red WiFi fácilmente. Generador gratuito y rápido.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+body{
+font-family:Arial, sans-serif;
+background:#f4f4f4;
+margin:0;
+padding:0;
+text-align:center;
+}
+
+header{
+background:#111;
+color:white;
+padding:15px;
+}
+
+nav{
+margin:15px 0;
+}
+
+nav a{
+margin:0 10px;
+text-decoration:none;
+color:#111;
+font-weight:bold;
+}
+
+.container{
+background:white;
+padding:30px;
+border-radius:10px;
+max-width:600px;
+margin:20px auto;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+input, select{
+padding:10px;
+width:80%;
+margin:8px 0;
+}
+
+button{
+padding:10px 20px;
+background:#000;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#333;
+}
+
+#qrcode{
+margin-top:20px;
+}
+
+section{
+max-width:800px;
+margin:40px auto;
+text-align:left;
+padding:0 20px;
+}
+
+footer{
+background:#111;
+color:white;
+padding:15px;
+margin-top:40px;
+font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Generador de Códigos QR Gratis</h1>
+</header>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="qr-whatsapp.html">QR WhatsApp</a>
+<a href="qr-wifi.html">QR WiFi</a>
+</nav>
+
+<div class="container">
+<h2>Generador de Código QR para WiFi</h2>
+
+<input type="text" id="ssid" placeholder="Nombre de la red (SSID)">
+<br>
+<input type="text" id="password" placeholder="Contraseña">
+<br>
+<select id="encryption">
+<option value="WPA">WPA/WPA2</option>
+<option value="WEP">WEP</option>
+<option value="nopass">Sin contraseña</option>
+</select>
+<br>
+<button onclick="generateQR()">Generar QR</button>
+
+<div id="qrcode"></div>
+</div>
+
+<section>
+<h2>¿Qué es un código QR para WiFi?</h2>
+<p>Un código QR WiFi permite compartir los datos de tu red sin necesidad de escribir la contraseña manualmente. Al escanear el código, el dispositivo se conecta automáticamente.</p>
+
+<h2>¿Para qué sirve?</h2>
+<ul>
+<li>Restaurantes y cafeterías</li>
+<li>Hoteles y alojamientos</li>
+<li>Oficinas</li>
+<li>Eventos</li>
+</ul>
+
+<h2>Ventajas</h2>
+<p>Es rápido, seguro y evita errores al escribir contraseñas largas o complejas.</p>
+</section>
+
+<footer>
+© 2026 Generador de Códigos QR Gratis
+</footer>
+
+<script>
+function generateQR(){
+document.getElementById("qrcode").innerHTML="";
+var ssid=document.getElementById("ssid").value;
+var password=document.getElementById("password").value;
+var encryption=document.getElementById("encryption").value;
+
+var qrData="WIFI:T:"+encryption+";S:"+ssid+";P:"+password+";;";
+
+new QRCode(document.getElementById("qrcode"),qrData);
+}
+</script>
+
+</body>
+</html>
