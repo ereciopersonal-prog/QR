@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Generador QR</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
 <style>
 body {
   margin: 0;
@@ -64,3 +71,26 @@ button:hover {
   margin-top: 25px;
 }
 </style>
+</head>
+
+<body>
+<div class="container">
+  <h1>Generador de QR</h1>
+  <input type="text" id="text" placeholder="Pega tu enlace aquí">
+  <button onclick="generateQR()">Generar QR</button>
+  <div id="qrcode"></div>
+</div>
+
+<script>
+function generateQR() {
+  document.getElementById("qrcode").innerHTML = "";
+  new QRCode(document.getElementById("qrcode"), {
+    text: document.getElementById("text").value,
+    width: 200,
+    height: 200
+  });
+}
+</script>
+
+</body>
+</html>
