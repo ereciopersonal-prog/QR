@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Generador de Código QR para Instagram Gratis</title>
+<meta name="description" content="Crea un código QR para tu perfil de Instagram gratis. Comparte tu usuario fácilmente con un QR escaneable.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+body{
+font-family:Arial, sans-serif;
+background:#f4f4f4;
+margin:0;
+padding:0;
+text-align:center;
+}
+
+header{
+background:#111;
+color:white;
+padding:15px;
+}
+
+nav{
+margin:15px 0;
+}
+
+nav a{
+margin:0 10px;
+text-decoration:none;
+color:#111;
+font-weight:bold;
+}
+
+.container{
+background:white;
+padding:30px;
+border-radius:10px;
+max-width:600px;
+margin:20px auto;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+input{
+padding:10px;
+width:80%;
+margin:8px 0;
+}
+
+button{
+padding:10px 20px;
+background:#000;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#333;
+}
+
+#qrcode{
+margin-top:20px;
+}
+
+section{
+max-width:800px;
+margin:40px auto;
+text-align:left;
+padding:0 20px;
+}
+
+footer{
+background:#111;
+color:white;
+padding:15px;
+margin-top:40px;
+font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Generador de Códigos QR Gratis</h1>
+</header>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="qr-whatsapp.html">QR WhatsApp</a>
+<a href="qr-wifi.html">QR WiFi</a>
+<a href="qr-instagram.html">QR Instagram</a>
+</nav>
+
+<div class="container">
+<h2>Generador de Código QR para Instagram</h2>
+
+<p>Introduce tu nombre de usuario (sin @)</p>
+
+<input type="text" id="username" placeholder="Tu usuario">
+
+<br>
+<button onclick="generateQR()">Generar QR</button>
+
+<div id="qrcode"></div>
+</div>
+
+<section>
+<h2>¿Qué es un código QR para Instagram?</h2>
+<p>Un código QR para Instagram permite compartir tu perfil de forma rápida y profesional. Al escanearlo, el usuario accede directamente a tu cuenta.</p>
+
+<h2>¿Para qué sirve?</h2>
+<ul>
+<li>Tarjetas de visita</li>
+<li>Locales físicos</li>
+<li>Eventos</li>
+<li>Promoción de marca personal</li>
+</ul>
+
+<h2>Ventajas</h2>
+<p>Facilita que nuevos seguidores accedan a tu perfil sin tener que buscar manualmente tu usuario.</p>
+</section>
+
+<footer>
+© 2026 Generador de Códigos QR Gratis
+</footer>
+
+<script>
+function generateQR(){
+document.getElementById("qrcode").innerHTML="";
+var username=document.getElementById("username").value;
+var url="https://www.instagram.com/"+username;
+new QRCode(document.getElementById("qrcode"),url);
+}
+</script>
+
+</body>
+</html>
