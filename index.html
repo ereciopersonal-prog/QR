@@ -9,74 +9,94 @@
 
 <style>
 body{
-font-family:Arial, sans-serif;
+font-family:'Segoe UI', Arial, sans-serif;
 background:#f4f4f4;
 margin:0;
 padding:0;
 text-align:center;
+color:#222;
 }
 
 header{
-background:#111;
+background:linear-gradient(135deg,#6C3BFF,#8E6BFF);
 color:white;
-padding:15px;
+padding:25px 15px;
+}
+
+header h1{
+margin:0;
+font-size:28px;
 }
 
 nav{
-margin:15px 0;
+margin:20px 0;
 }
 
 nav a{
-margin:0 10px;
+margin:0 12px;
 text-decoration:none;
-color:#111;
-font-weight:bold;
+color:#6C3BFF;
+font-weight:600;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#4b25c7;
 }
 
 .container{
 background:white;
-padding:30px;
-border-radius:10px;
+padding:35px;
+border-radius:16px;
 max-width:600px;
 margin:20px auto;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
 }
 
 input{
-padding:10px;
-width:80%;
-margin:8px 0;
+padding:12px;
+width:85%;
+margin:10px 0;
+border:1px solid #ddd;
+border-radius:10px;
+font-size:14px;
 }
 
 button{
-padding:10px 20px;
-background:#000;
+padding:12px 25px;
+background:#6C3BFF;
 color:white;
 border:none;
-border-radius:5px;
+border-radius:12px;
 cursor:pointer;
+font-weight:600;
+transition:0.3s;
 }
 
 button:hover{
-background:#333;
+background:#4b25c7;
 }
 
 #qrcode{
-margin-top:20px;
+margin-top:25px;
 }
 
 section{
 max-width:800px;
-margin:40px auto;
+margin:50px auto;
 text-align:left;
 padding:0 20px;
+}
+
+section h2{
+color:#6C3BFF;
 }
 
 footer{
 background:#111;
 color:white;
-padding:15px;
-margin-top:40px;
+padding:20px;
+margin-top:60px;
 font-size:14px;
 }
 </style>
@@ -86,6 +106,7 @@ font-size:14px;
 
 <header>
 <h1>Generador de Códigos QR Gratis</h1>
+<p>Rápido • Online • Sin registro</p>
 </header>
 
 <nav>
@@ -110,7 +131,7 @@ font-size:14px;
 
 <section>
 <h2>¿Qué es un código QR?</h2>
-<p>Un código QR es un tipo de código de barras bidimensional que permite almacenar información como enlaces, contactos o datos de red WiFi.</p>
+<p>Un código QR es un tipo de código bidimensional que permite almacenar información como enlaces, contactos o datos WiFi.</p>
 
 <h2>¿Para qué sirve?</h2>
 <ul>
