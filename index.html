@@ -1,159 +1,66 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<title>Generador de Códigos QR Gratis Online</title>
-<meta name="description" content="Generador de códigos QR gratis online. Crea QR para enlaces, WhatsApp, WiFi, Instagram y más.">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
 <style>
-body{
-margin:0;
-font-family:'Segoe UI', sans-serif;
-background:linear-gradient(135deg,#6C3BFF,#00B3FF);
-min-height:100vh;
-display:flex;
-flex-direction:column;
-align-items:center;
-color:white;
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #F5F3FF;
+  color: #1A1A1A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-header{
-padding:40px 20px 20px 20px;
-text-align:center;
+.container {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(109, 40, 217, 0.15);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
 }
 
-header h1{
-margin:0;
-font-size:32px;
-font-weight:700;
+h1 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  background: linear-gradient(135deg, #6D28D9, #C084FC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-header p{
-margin-top:8px;
-opacity:0.9;
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid #E9D5FF;
+  margin-bottom: 20px;
+  font-size: 16px;
+  outline: none;
 }
 
-nav{
-margin:15px 0 25px 0;
+input:focus {
+  border-color: #6D28D9;
 }
 
-nav a{
-margin:0 12px;
-text-decoration:none;
-color:white;
-font-weight:600;
-opacity:0.9;
-transition:0.3s;
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6D28D9, #22C55E);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
 
-nav a:hover{
-opacity:1;
-text-decoration:underline;
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3);
 }
 
-.container{
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(15px);
-padding:40px;
-border-radius:20px;
-max-width:600px;
-width:90%;
-box-shadow:0 20px 40px rgba(0,0,0,0.2);
-text-align:center;
-}
-
-input{
-padding:14px;
-width:90%;
-margin:15px 0;
-border:none;
-border-radius:14px;
-font-size:15px;
-}
-
-button{
-padding:14px 35px;
-background:#ffffff;
-color:#6C3BFF;
-border:none;
-border-radius:30px;
-cursor:pointer;
-font-weight:700;
-font-size:15px;
-transition:0.3s;
-}
-
-button:hover{
-transform:scale(1.05);
-}
-
-#qrcode{
-margin-top:30px;
-}
-
-section{
-max-width:800px;
-margin:60px auto;
-padding:0 20px;
-text-align:center;
-}
-
-section h2{
-margin-bottom:10px;
-}
-
-footer{
-margin-top:auto;
-padding:25px;
-font-size:14px;
-opacity:0.8;
+#qrcode {
+  margin-top: 25px;
 }
 </style>
-</head>
-
-<body>
-
-<header>
-<h1>Generador de Códigos QR</h1>
-<p>Rápido • Gratis • Sin registro</p>
-</header>
-
-<nav>
-<a href="index.html">Inicio</a>
-<a href="qr-whatsapp.html">WhatsApp</a>
-<a href="qr-wifi.html">WiFi</a>
-<a href="qr-instagram.html">Instagram</a>
-</nav>
-
-<div class="container">
-<h2>Crea tu QR al instante</h2>
-
-<input type="text" id="url" placeholder="Pega aquí tu enlace">
-
-<br>
-<button onclick="generateQR()">Generar QR</button>
-
-<div id="qrcode"></div>
-</div>
-
-<section>
-<h2>Comparte lo que quieras con un simple escaneo</h2>
-<p>Crea códigos QR para redes sociales, WiFi, enlaces y más. Perfecto para compartir rápido y sin complicaciones.</p>
-</section>
-
-<footer>
-© 2026 Generador QR
-</footer>
-
-<script>
-function generateQR(){
-document.getElementById("qrcode").innerHTML="";
-var url=document.getElementById("url").value;
-new QRCode(document.getElementById("qrcode"),url);
-}
-</script>
-
-</body>
-</html>
