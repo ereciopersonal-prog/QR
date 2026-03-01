@@ -3,73 +3,81 @@
 <head>
 <meta charset="UTF-8">
 <title>Generador QR</title>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <style>
+<style>
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #F5F3FF;
-  color: #1A1A1A;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #6D28D9, #A855F7);
+  color: #111;
 }
 
 .container {
-  background: white;
+  background: rgba(255,255,255,0.95);
+  margin: 40px auto;
   padding: 40px;
   border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(109, 40, 217, 0.15);
-  text-align: center;
-  width: 90%;
-  max-width: 400px;
+  max-width: 800px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
 }
 
 h1 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 48px;
+  text-align: center;
+  color: #22C55E;
+  text-shadow: 3px 3px 0px #000;
   margin-bottom: 20px;
-  font-size: 28px;
-  background: linear-gradient(135deg, #6D28D9, #C084FC);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  color: #6D28D9;
+  margin-top: 40px;
 }
 
 input {
   width: 100%;
-  padding: 12px;
-  border-radius: 10px;
-  border: 2px solid #E9D5FF;
-  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 12px;
+  border: 2px solid #22C55E;
   font-size: 16px;
-  outline: none;
-}
-
-input:focus {
-  border-color: #6D28D9;
+  margin-bottom: 15px;
 }
 
 button {
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #6D28D9, #22C55E);
-  color: white;
-  font-size: 16px;
+  background: #22C55E;
+  color: #000;
   font-weight: bold;
+  border: none;
+  padding: 15px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: 0.3s;
 }
 
 button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3);
+  background: #16A34A;
+  transform: scale(1.05);
+}
+
+a {
+  color: #22C55E;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 #qrcode {
-  margin-top: 25px;
+  margin-top: 20px;
+  text-align: center;
 }
+</style>
 </style>
 </head>
 
