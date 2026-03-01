@@ -2,122 +2,137 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<title>Generador de Códigos QR Gratis Online</title>
+<meta name="description" content="Generador de códigos QR gratis online. Crea QR para enlaces, WhatsApp, WiFi, Instagram y más.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Generador de Código QR Gratis Online</title>
-<meta name="description" content="Generador de código QR gratis online. Crea tu QR en segundos para enlaces, WhatsApp, Instagram o cualquier URL. Rápido y fácil.">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #4e73df, #1cc88a);
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  color: #333;
+body{
+font-family:Arial, sans-serif;
+background:#f4f4f4;
+margin:0;
+padding:0;
+text-align:center;
 }
 
-.container {
-  background: white;
-  max-width: 500px;
-  margin: 60px auto;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+header{
+background:#111;
+color:white;
+padding:15px;
 }
 
-h1 {
-  margin-bottom: 10px;
+nav{
+margin:15px 0;
 }
 
-input {
-  width: 90%;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+nav a{
+margin:0 10px;
+text-decoration:none;
+color:#111;
+font-weight:bold;
 }
 
-button {
-  padding: 12px 20px;
-  margin-top: 15px;
-  border: none;
-  border-radius: 8px;
-  background: #4e73df;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
+.container{
+background:white;
+padding:30px;
+border-radius:10px;
+max-width:600px;
+margin:20px auto;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
 
-button:hover {
-  background: #2e59d9;
+input{
+padding:10px;
+width:80%;
+margin:8px 0;
 }
 
-img {
-  margin-top: 20px;
+button{
+padding:10px 20px;
+background:#000;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
 }
 
-.download-btn {
-  display: none;
-  background: #1cc88a;
+button:hover{
+background:#333;
 }
 
-.content {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  background: white;
-  border-radius: 10px;
-  text-align: left;
+#qrcode{
+margin-top:20px;
+}
+
+section{
+max-width:800px;
+margin:40px auto;
+text-align:left;
+padding:0 20px;
+}
+
+footer{
+background:#111;
+color:white;
+padding:15px;
+margin-top:40px;
+font-size:14px;
 }
 </style>
 </head>
 
 <body>
 
+<header>
+<h1>Generador de Códigos QR Gratis</h1>
+</header>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="qr-whatsapp.html">QR WhatsApp</a>
+<a href="qr-wifi.html">QR WiFi</a>
+<a href="qr-instagram.html">QR Instagram</a>
+</nav>
+
 <div class="container">
-<h1>Generador de Código QR Gratis</h1>
-<p>Pega tu enlace y crea tu QR al instante.</p>
+<h2>Generador de Código QR para Enlaces</h2>
+
+<p>Introduce cualquier enlace y genera tu código QR al instante.</p>
 
 <input type="text" id="url" placeholder="https://ejemplo.com">
-<br>
-<button onclick="generarQR()">Generar QR</button>
 
 <br>
-<img id="qr">
+<button onclick="generateQR()">Generar QR</button>
 
-<br>
-<button class="download-btn" id="downloadBtn" onclick="descargarQR()">Descargar QR</button>
+<div id="qrcode"></div>
 </div>
 
-<div class="content">
+<section>
 <h2>¿Qué es un código QR?</h2>
-<p>Un código QR es un tipo de código de barras bidimensional que permite almacenar información como enlaces web, números de teléfono o textos. Al escanearlo con la cámara del móvil, el usuario accede directamente al contenido.</p>
+<p>Un código QR es un tipo de código de barras bidimensional que permite almacenar información como enlaces, contactos o datos de red WiFi.</p>
 
-<h2>¿Cómo crear un código QR?</h2>
-<p>Simplemente pega tu enlace en el generador superior y pulsa el botón "Generar QR". En segundos tendrás tu código listo para descargar y compartir.</p>
-
-<h2>Usos del código QR</h2>
+<h2>¿Para qué sirve?</h2>
 <ul>
-<li>Compartir enlaces web</li>
-<li>Menús digitales para restaurantes</li>
-<li>Tarjetas de visita digitales</li>
-<li>Redes sociales como Instagram o WhatsApp</li>
+<li>Compartir enlaces fácilmente</li>
+<li>Marketing digital</li>
+<li>Negocios físicos</li>
+<li>Eventos</li>
 </ul>
-</div>
+
+<h2>Ventajas</h2>
+<p>Son rápidos, fáciles de usar y compatibles con todos los smartphones modernos.</p>
+</section>
+
+<footer>
+© 2026 Generador de Códigos QR Gratis
+</footer>
 
 <script>
-function generarQR() {
-  var url = document.getElementById("url").value;
-  var qrImage = document.getElementById("qr");
-  qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + encodeURIComponent(url);
-  document.getElementById("downloadBtn").style.display = "inline-block";
-}
-
-function descargarQR() {
-  var link = document.createElement('a');
-  link.href = document.getElementById("qr").src;
-  link.download = "codigo-qr.png";
-  link.click();
+function generateQR(){
+document.getElementById("qrcode").innerHTML="";
+var url=document.getElementById("url").value;
+new QRCode(document.getElementById("qrcode"),url);
 }
 </script>
 
