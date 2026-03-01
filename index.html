@@ -1,102 +1,138 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Generador QR</title>
-<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<title>Generador de Códigos QR Gratis Online</title>
+<meta name="description" content="Generador de códigos QR gratis online. Crea QR para enlaces, WhatsApp, WiFi, Instagram y más.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <style>
-<style>
-body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(135deg, #6D28D9, #A855F7);
-  color: #111;
+body{
+font-family:Arial, sans-serif;
+background:#f4f4f4;
+margin:0;
+padding:0;
+text-align:center;
 }
 
-.container {
-  background: rgba(255,255,255,0.95);
-  margin: 40px auto;
-  padding: 40px;
-  border-radius: 20px;
-  max-width: 800px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+header{
+background:#111;
+color:white;
+padding:15px;
 }
 
-h1 {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 48px;
-  text-align: center;
-  color: #22C55E;
-  text-shadow: 3px 3px 0px #000;
-  margin-bottom: 20px;
+nav{
+margin:15px 0;
 }
 
-h2 {
-  color: #6D28D9;
-  margin-top: 40px;
+nav a{
+margin:0 10px;
+text-decoration:none;
+color:#111;
+font-weight:bold;
 }
 
-input {
-  width: 100%;
-  padding: 15px;
-  border-radius: 12px;
-  border: 2px solid #22C55E;
-  font-size: 16px;
-  margin-bottom: 15px;
+.container{
+background:white;
+padding:30px;
+border-radius:10px;
+max-width:600px;
+margin:20px auto;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
 
-button {
-  background: #22C55E;
-  color: #000;
-  font-weight: bold;
-  border: none;
-  padding: 15px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.3s;
+input{
+padding:10px;
+width:80%;
+margin:8px 0;
 }
 
-button:hover {
-  background: #16A34A;
-  transform: scale(1.05);
+button{
+padding:10px 20px;
+background:#000;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
 }
 
-a {
-  color: #22C55E;
-  font-weight: bold;
-  text-decoration: none;
+button:hover{
+background:#333;
 }
 
-a:hover {
-  text-decoration: underline;
+#qrcode{
+margin-top:20px;
 }
 
-#qrcode {
-  margin-top: 20px;
-  text-align: center;
+section{
+max-width:800px;
+margin:40px auto;
+text-align:left;
+padding:0 20px;
 }
-</style>
+
+footer{
+background:#111;
+color:white;
+padding:15px;
+margin-top:40px;
+font-size:14px;
+}
 </style>
 </head>
 
 <body>
+
+<header>
+<h1>Generador de Códigos QR Gratis</h1>
+</header>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="qr-whatsapp.html">QR WhatsApp</a>
+<a href="qr-wifi.html">QR WiFi</a>
+<a href="qr-instagram.html">QR Instagram</a>
+</nav>
+
 <div class="container">
-  <h1>Generador de QR</h1>
-  <input type="text" id="text" placeholder="Pega tu enlace aquí">
-  <button onclick="generateQR()">Generar QR</button>
-  <div id="qrcode"></div>
+<h2>Generador de Código QR para Enlaces</h2>
+
+<p>Introduce cualquier enlace y genera tu código QR al instante.</p>
+
+<input type="text" id="url" placeholder="https://ejemplo.com">
+
+<br>
+<button onclick="generateQR()">Generar QR</button>
+
+<div id="qrcode"></div>
 </div>
 
+<section>
+<h2>¿Qué es un código QR?</h2>
+<p>Un código QR es un tipo de código de barras bidimensional que permite almacenar información como enlaces, contactos o datos de red WiFi.</p>
+
+<h2>¿Para qué sirve?</h2>
+<ul>
+<li>Compartir enlaces fácilmente</li>
+<li>Marketing digital</li>
+<li>Negocios físicos</li>
+<li>Eventos</li>
+</ul>
+
+<h2>Ventajas</h2>
+<p>Son rápidos, fáciles de usar y compatibles con todos los smartphones modernos.</p>
+</section>
+
+<footer>
+© 2026 Generador de Códigos QR Gratis
+</footer>
+
 <script>
-function generateQR() {
-  document.getElementById("qrcode").innerHTML = "";
-  new QRCode(document.getElementById("qrcode"), {
-    text: document.getElementById("text").value,
-    width: 200,
-    height: 200
-  });
+function generateQR(){
+document.getElementById("qrcode").innerHTML="";
+var url=document.getElementById("url").value;
+new QRCode(document.getElementById("qrcode"),url);
 }
 </script>
 
