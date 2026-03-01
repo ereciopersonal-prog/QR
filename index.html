@@ -2,139 +2,82 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Generador de Códigos QR Gratis Online</title>
-<meta name="description" content="Generador de códigos QR gratis online. Crea QR para enlaces, WhatsApp, WiFi, Instagram y más.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-<style>
-body{
-font-family:Arial, sans-serif;
-background:#f4f4f4;
-margin:0;
-padding:0;
-text-align:center;
-}
+<title>Generador de Código QR Gratis Online | Crear QR para Enlaces</title>
 
-header{
-background:#111;
-color:white;
-padding:15px;
-}
+<meta name="description" content="Crea tu código QR gratis para cualquier enlace en segundos. Generador de códigos QR online sin registro. Descarga inmediata y compatible con todos los dispositivos.">
 
-nav{
-margin:15px 0;
-}
-
-nav a{
-margin:0 10px;
-text-decoration:none;
-color:#111;
-font-weight:bold;
-}
-
-.container{
-background:white;
-padding:30px;
-border-radius:10px;
-max-width:600px;
-margin:20px auto;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-}
-
-input{
-padding:10px;
-width:80%;
-margin:8px 0;
-}
-
-button{
-padding:10px 20px;
-background:#000;
-color:white;
-border:none;
-border-radius:5px;
-cursor:pointer;
-}
-
-button:hover{
-background:#333;
-}
-
-#qrcode{
-margin-top:20px;
-}
-
-section{
-max-width:800px;
-margin:40px auto;
-text-align:left;
-padding:0 20px;
-}
-
-footer{
-background:#111;
-color:white;
-padding:15px;
-margin-top:40px;
-font-size:14px;
-}
-</style>
 </head>
-
 <body>
 
-<header>
-<h1>Generador de Códigos QR Gratis</h1>
-</header>
+<h1>Generador de Código QR Gratis Online</h1>
 
-<nav>
-<a href="index.html">Inicio</a>
-<a href="qr-whatsapp.html">QR WhatsApp</a>
-<a href="qr-wifi.html">QR WiFi</a>
-<a href="qr-instagram.html">QR Instagram</a>
-</nav>
+<p>Crea tu código QR gratis para cualquier enlace en segundos. Nuestro generador de códigos QR online te permite convertir una URL en un código QR listo para descargar, compartir o imprimir sin necesidad de registro.</p>
 
-<div class="container">
 <h2>Generador de Código QR para Enlaces</h2>
 
 <p>Introduce cualquier enlace y genera tu código QR al instante.</p>
 
-<input type="text" id="url" placeholder="https://ejemplo.com">
+<input type="text" placeholder="https://ejemplo.com" id="qrText" style="width:300px; padding:8px;">
+<button onclick="generateQR()" style="padding:8px;">Generar QR</button>
 
-<br>
-<button onclick="generateQR()">Generar QR</button>
+<div id="qrcode" style="margin-top:20px;"></div>
 
-<div id="qrcode"></div>
-</div>
-
-<section>
-<h2>¿Qué es un código QR?</h2>
-<p>Un código QR es un tipo de código de barras bidimensional que permite almacenar información como enlaces, contactos o datos de red WiFi.</p>
-
-<h2>¿Para qué sirve?</h2>
-<ul>
-<li>Compartir enlaces fácilmente</li>
-<li>Marketing digital</li>
-<li>Negocios físicos</li>
-<li>Eventos</li>
-</ul>
-
-<h2>Ventajas</h2>
-<p>Son rápidos, fáciles de usar y compatibles con todos los smartphones modernos.</p>
-</section>
-
-<footer>
-© 2026 Generador de Códigos QR Gratis
-</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <script>
-function generateQR(){
-document.getElementById("qrcode").innerHTML="";
-var url=document.getElementById("url").value;
-new QRCode(document.getElementById("qrcode"),url);
+function generateQR() {
+    var qrContainer = document.getElementById("qrcode");
+    qrContainer.innerHTML = "";
+    var text = document.getElementById("qrText").value;
+    new QRCode(qrContainer, {
+        text: text,
+        width: 200,
+        height: 200
+    });
 }
 </script>
+
+<h2>¿Qué es un código QR y cómo funciona?</h2>
+
+<p>Un código QR (Quick Response) es un tipo de código de barras bidimensional que puede almacenar información digital como enlaces web, números de teléfono, mensajes, datos de WiFi o perfiles de redes sociales. Se puede escanear fácilmente con la cámara de cualquier smartphone moderno.</p>
+
+<p>Cuando alguien escanea un código QR, su dispositivo abre automáticamente el contenido asociado, como una página web o un contacto. Por eso es una herramienta muy utilizada en marketing digital y negocios físicos.</p>
+
+<h2>¿Para qué sirve un generador de códigos QR?</h2>
+
+<ul>
+<li>Crear un código QR para una página web</li>
+<li>Compartir un enlace de WhatsApp</li>
+<li>Generar un QR para Instagram</li>
+<li>Crear un código QR para WiFi</li>
+<li>Compartir información rápidamente</li>
+</ul>
+
+<h2>Ventajas de crear códigos QR online gratis</h2>
+
+<ul>
+<li>No requiere registro</li>
+<li>Compatible con todos los dispositivos</li>
+<li>Descarga inmediata</li>
+<li>Ideal para marketing y negocios</li>
+</ul>
+
+<h2>Preguntas frecuentes</h2>
+
+<h3>¿Es seguro generar un código QR?</h3>
+<p>Sí. Un código QR simplemente almacena información. La seguridad depende del contenido que incluya.</p>
+
+<h3>¿Caducan los códigos QR?</h3>
+<p>No. Un código QR estático funcionará siempre que el enlace siga activo.</p>
+
+<h3>¿Necesito una app para escanear un QR?</h3>
+<p>No. La mayoría de smartphones ya incluyen lector QR en la cámara.</p>
+
+<h2>Crea tu código QR ahora</h2>
+
+<p>Empieza ahora mismo y genera tu código QR gratis en segundos. Sin registro, sin complicaciones y totalmente online.</p>
 
 </body>
 </html>
