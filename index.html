@@ -2,13 +2,17 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Generador de Códigos QR Gratis Online</title>
+
+<title>qrflow.tech | Generador de Códigos QR Gratis</title>
 <meta name="description" content="Generador de códigos QR gratis online. Crea QR para enlaces, WhatsApp, WiFi, Instagram y más.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- FAVICON -->
+<link rel="icon" type="image/png" href="LogoQ.png">
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-<!-- Fuente Lobster para títulos -->
+<!-- Fuente -->
 <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 
 <style>
@@ -22,41 +26,48 @@ text-align:center;
 color:#6a00a8;
 }
 
-/* ENCABEZADO DEGRADADO */
+/* HEADER */
 header{
 background: linear-gradient(135deg, #6a00a8, #ff2fd1);
-padding:30px 15px;
+padding:20px 10px;
+}
+
+.logo{
+width:120px;
+display:block;
+margin:0 auto 10px auto;
 }
 
 header h1{
 font-family: 'Lobster', cursive;
 color:#fff4c2;
-font-size:42px;
+font-size:36px;
 margin:0;
 text-shadow: 2px 2px 0 #6a00a8;
 }
 
-/* MENÚ */
+/* NAV */
 nav{
-margin:20px 0;
+margin:20px 10px;
 }
 
 nav a{
-margin:0 12px;
+margin:6px 10px;
+display:inline-block;
 text-decoration:none;
 color:#6a00a8;
 font-weight:bold;
-font-size:16px;
+font-size:15px;
 }
 
 nav a:hover{
 text-decoration:underline;
 }
 
-/* TARJETA CENTRAL */
+/* CONTAINER */
 .container{
 background: linear-gradient(135deg, #6a00a8, #ff2fd1);
-padding:35px;
+padding:30px 20px;
 border-radius:20px;
 max-width:600px;
 margin:30px auto;
@@ -75,17 +86,18 @@ text-shadow: 2px 2px 0 #6a00a8;
 color:white;
 }
 
-/* INPUTS */
+/* INPUT */
 input{
 padding:12px;
-width:85%;
+width:90%;
+max-width:400px;
 margin:10px 0;
 border:none;
 border-radius:8px;
 font-size:15px;
 }
 
-/* BOTÓN */
+/* BUTTON */
 button{
 padding:12px 25px;
 background:#fff4c2;
@@ -95,6 +107,7 @@ border-radius:25px;
 font-weight:bold;
 cursor:pointer;
 transition:0.3s;
+box-shadow:0 5px 10px rgba(0,0,0,0.2);
 }
 
 button:hover{
@@ -104,14 +117,22 @@ transform:scale(1.05);
 /* QR */
 #qrcode{
 margin-top:25px;
+display:flex;
+justify-content:center;
 }
 
-/* SECCIÓN INFORMATIVA */
+/* DOWNLOAD BUTTON */
+.download-btn{
+margin-top:15px;
+display:none;
+}
+
+/* SECTION */
 section{
 max-width:800px;
 margin:50px auto;
 text-align:left;
-padding:0 25px;
+padding:0 20px;
 }
 
 section h2{
@@ -134,12 +155,24 @@ margin-top:60px;
 font-size:14px;
 }
 
+/* MOBILE */
+@media(max-width:600px){
+header h1{
+font-size:28px;
+}
+
+.logo{
+width:90px;
+}
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
+<img src="LogoQ.png" alt="qrflow logo" class="logo">
 <h1>Generador de Códigos QR Gratis</h1>
 </header>
 
@@ -165,6 +198,9 @@ font-size:14px;
 <button onclick="generateQR()">Generar QR</button>
 
 <div id="qrcode"></div>
+
+<button class="download-btn" id="downloadBtn" onclick="downloadQR()">Descargar QR</button>
+
 </div>
 
 <section>
@@ -184,15 +220,43 @@ font-size:14px;
 </section>
 
 <footer>
-© 2026 Generador de Códigos QR Gratis
+© 2026 qrflow.tech
 </footer>
 
 <script>
+
 function generateQR(){
 document.getElementById("qrcode").innerHTML="";
 var url=document.getElementById("url").value;
-new QRCode(document.getElementById("qrcode"),url);
+
+if(url.trim() === ""){
+alert("Introduce un enlace válido");
+return;
 }
+
+new QRCode(document.getElementById("qrcode"),{
+text:url,
+width:200,
+height:200
+});
+
+document.getElementById("downloadBtn").style.display="inline-block";
+}
+
+function downloadQR(){
+var img = document.querySelector("#qrcode img");
+
+if(!img){
+alert("Primero genera un QR");
+return;
+}
+
+var link = document.createElement("a");
+link.href = img.src;
+link.download = "qrflow.png";
+link.click();
+}
+
 </script>
 
 </body>
