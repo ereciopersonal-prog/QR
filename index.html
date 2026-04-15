@@ -7,12 +7,10 @@
 <meta name="description" content="Generador de códigos QR gratis online. Crea QR para enlaces, WhatsApp, WiFi, Instagram y más.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- FAVICON -->
 <link rel="icon" type="image/png" href="LogoQ.png">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-<!-- Fuente -->
 <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 
 <style>
@@ -26,24 +24,18 @@ text-align:center;
 color:#6a00a8;
 }
 
-/* HEADER */
+/* HEADER SOLO LOGO */
 header{
 background: linear-gradient(135deg, #6a00a8, #ff2fd1);
-padding:20px 10px;
+padding:30px 10px;
 }
 
-.logo{
-width:120px;
+.logo-main{
+width:220px;
+max-width:80%;
 display:block;
-margin:0 auto 10px auto;
-}
-
-header h1{
-font-family: 'Lobster', cursive;
-color:#fff4c2;
-font-size:36px;
-margin:0;
-text-shadow: 2px 2px 0 #6a00a8;
+margin:0 auto;
+filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
 }
 
 /* NAV */
@@ -157,12 +149,8 @@ font-size:14px;
 
 /* MOBILE */
 @media(max-width:600px){
-header h1{
-font-size:28px;
-}
-
-.logo{
-width:90px;
+.logo-main{
+width:160px;
 }
 }
 
@@ -172,8 +160,7 @@ width:90px;
 <body>
 
 <header>
-<img src="LogoQ.png" alt="qrflow logo" class="logo">
-<h1>Generador de Códigos QR Gratis</h1>
+<img src="LogoQ.png" alt="qrflow logo" class="logo-main">
 </header>
 
 <nav>
