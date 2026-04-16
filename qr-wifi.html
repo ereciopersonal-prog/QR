@@ -2,248 +2,37 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-
-<title>qrflow.tech | QR para WiFi</title>
-<meta name="description" content="Crea un código QR para tu red WiFi. Permite que tus invitados se conecten sin escribir la contraseña. Gratis y fácil.">
+<title>qrflow.tech | QR WiFi</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="icon" type="image/png" href="LogoQ.png">
+<link rel="icon" href="LogoQ.png">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3CQH3G1CM"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z3CQH3G1CM');
+</script>
 
-<style>
-
-body{
-font-family: Arial, sans-serif;
-background:#ece6f2;
-margin:0;
-padding:0;
-text-align:center;
-color:#6a00a8;
-}
-
-/* HEADER */
-header{
-background: linear-gradient(135deg, #6a00a8, #ff2fd1);
-padding:30px 10px;
-}
-
-.logo-main{
-width:220px;
-max-width:80%;
-display:block;
-margin:0 auto;
-filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
-}
-
-/* NAV */
-nav{
-margin:20px 10px;
-}
-
-nav a{
-margin:6px 10px;
-display:inline-block;
-text-decoration:none;
-color:#6a00a8;
-font-weight:bold;
-font-size:15px;
-}
-
-/* CONTAINER */
-.container{
-background: linear-gradient(135deg, #6a00a8, #ff2fd1);
-padding:30px 20px;
-border-radius:20px;
-max-width:600px;
-margin:30px auto;
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
-color:white;
-}
-
-.container h2{
-font-family:'Lobster', cursive;
-color:#fff4c2;
-text-shadow:2px 2px 0 #6a00a8;
-margin-top:0;
-}
-
-.container p{
-color:white;
-}
-
-/* INPUTS */
-input, select{
-padding:12px;
-width:90%;
-max-width:400px;
-margin:8px 0;
-border:none;
-border-radius:8px;
-font-size:15px;
-}
-
-/* BUTTON */
-button{
-padding:12px 25px;
-background:#fff4c2;
-color:#6a00a8;
-border:none;
-border-radius:25px;
-font-weight:bold;
-cursor:pointer;
-transition:0.3s;
-box-shadow:0 5px 10px rgba(0,0,0,0.2);
-}
-
-button:hover{
-transform:scale(1.05);
-}
-
-/* QR */
-#qrcode{
-margin-top:25px;
-display:flex;
-justify-content:center;
-}
-
-/* DOWNLOAD BUTTON */
-.download-btn{
-margin-top:15px;
-display:none;
-}
-
-/* SECTION */
-section{
-max-width:800px;
-margin:50px auto;
-text-align:left;
-padding:0 20px;
-}
-
-section h2{
-font-family:'Lobster', cursive;
-color:#6a00a8;
-font-size:28px;
-}
-
-section p, section li{
-color:#6a00a8;
-line-height:1.6;
-}
-
-/* FOOTER */
-footer{
-background: linear-gradient(135deg, #6a00a8, #ff2fd1);
-color:#fff4c2;
-padding:20px;
-margin-top:60px;
-font-size:14px;
-}
-
-/* MOBILE */
-@media(max-width:600px){
-.logo-main{
-width:160px;
-}
-}
-
-</style>
 </head>
+<body style="text-align:center;font-family:Arial;background:#ece6f2;">
 
-<body>
-
-<header>
-<img src="LogoQ.png" alt="qrflow logo" class="logo-main">
-</header>
-
-<nav>
-<a href="index.html">Inicio</a>
-<a href="qr-whatsapp.html">QR WhatsApp</a>
-<a href="qr-wifi.html">QR WiFi</a>
-<a href="qr-instagram.html">QR Instagram</a>
-<a href="qr-facebook.html">QR Facebook</a>
-<a href="qr-tiktok.html">QR TikTok</a>
-<a href="qr-tarjeta.html">QR Tarjeta</a>
-<a href="ventajas-codigos-qr.html">Ventajas QR</a>
-</nav>
-
-<div class="container">
-<h2>Generar Código QR para tu Red</h2>
-
-<p>Permite que tus invitados se conecten a tu WiFi sin escribir la contraseña.</p>
-
-<input type="text" id="ssid" placeholder="Nombre de la red (SSID)">
-<input type="text" id="password" placeholder="Contraseña">
-<select id="security">
-<option value="WPA">WPA/WPA2</option>
-<option value="WEP">WEP</option>
-<option value="">Sin contraseña</option>
-</select>
-
-<br>
-<button onclick="generateQR()">Generar QR</button>
-
+<h2>QR WiFi</h2>
+<input id="ssid" placeholder="Red"><br>
+<input id="password" placeholder="Contraseña"><br>
+<button onclick="generateQR()">Generar</button>
 <div id="qrcode"></div>
 
-<button class="download-btn" id="downloadBtn" onclick="downloadQR()">Descargar QR</button>
-
-</div>
-
-<section>
-<h2>Ventajas del QR WiFi</h2>
-<ul>
-<li>Evita errores al escribir contraseñas largas</li>
-<li>Ideal para bares y restaurantes</li>
-<li>Perfecto para oficinas y eventos</li>
-</ul>
-</section>
-
-<footer>
-© 2026 qrflow.tech
-</footer>
-
 <script>
-
 function generateQR(){
-document.getElementById("qrcode").innerHTML="";
-
-var ssid = document.getElementById("ssid").value;
-var password = document.getElementById("password").value;
-var security = document.getElementById("security").value;
-
-if(ssid.trim() === ""){
-alert("Introduce el nombre de la red");
-return;
+qrcode.innerHTML="";
+var wifi="WIFI:T:WPA;S:"+ssid.value+";P:"+password.value+";;";
+new QRCode(qrcode,wifi);
 }
-
-var wifi = "WIFI:T:" + security + ";S:" + ssid + ";P:" + password + ";;";
-
-new QRCode(document.getElementById("qrcode"),{
-text:wifi,
-width:200,
-height:200
-});
-
-document.getElementById("downloadBtn").style.display="inline-block";
-}
-
-function downloadQR(){
-var img = document.querySelector("#qrcode img");
-
-if(!img){
-alert("Primero genera un QR");
-return;
-}
-
-var link = document.createElement("a");
-link.href = img.src;
-link.download = "qr-wifi.png";
-link.click();
-}
-
 </script>
 
 </body>
