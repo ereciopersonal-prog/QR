@@ -24,7 +24,7 @@ text-align:center;
 color:#6a00a8;
 }
 
-/* HEADER SOLO LOGO */
+/* HEADER */
 header{
 background: linear-gradient(135deg, #6a00a8, #ff2fd1);
 padding:30px 10px;
@@ -52,10 +52,6 @@ font-weight:bold;
 font-size:15px;
 }
 
-nav a:hover{
-text-decoration:underline;
-}
-
 /* CONTAINER */
 .container{
 background: linear-gradient(135deg, #6a00a8, #ff2fd1);
@@ -70,8 +66,8 @@ color:white;
 .container h2{
 font-family:'Lobster', cursive;
 color:#fff4c2;
+text-shadow: 2px 2px 0 #6a00a8;
 margin-top:0;
-text-shadow: 2px 2px 0 #6a00a8; 
 }
 
 .container p{
@@ -155,7 +151,7 @@ width:160px;
 }
 
 </style>
-  
+
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3CQH3G1CM"></script>
 <script>
@@ -164,7 +160,7 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-Z3CQH3G1CM');
 </script>
-  
+
 </head>
 
 <body>
@@ -183,7 +179,7 @@ gtag('config', 'G-Z3CQH3G1CM');
 <a href="qr-tarjeta.html">QR Tarjeta</a>
 <a href="ventajas-codigos-qr.html">Ventajas QR</a>
 </nav>
-  
+
 <div class="container">
 <h2>Generador de Código QR para Enlaces</h2>
 
@@ -250,7 +246,7 @@ return;
 
 var link = document.createElement("a");
 link.href = img.src;
-link.download = "qrflow.png";
+link.download = "qr-enlace.png";
 link.click();
 }
 
