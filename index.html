@@ -2,16 +2,17 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>qrflow.tech</title>
-<meta name="description" content="Generador de códigos QR gratis online.">
+<title>Generador de Códigos QR Gratis Online</title>
+<meta name="description" content="Generador de códigos QR gratis online. Crea QR para enlaces, WhatsApp, WiFi, Instagram y más.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="icon" href="LogoQ.png">
+<link rel="icon" type="image/png" href="LogoQ.png">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 
-<!-- Analytics -->
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3CQH3G1CM"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -21,38 +22,78 @@ gtag('config', 'G-Z3CQH3G1CM');
 </script>
 
 <style>
-body{font-family:Arial;background:#ece6f2;margin:0;text-align:center;color:#6a00a8;}
 
-header{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:20px;}
-.logo{width:180px;}
-
-header h1{
-font-family:'Lobster',cursive;
-color:#fff4c2;
-margin:10px 0 0;
-text-shadow:2px 2px 0 #6a00a8;
+body{
+font-family: Arial, sans-serif;
+background:#ece6f2;
+margin:0;
+padding:0;
+text-align:center;
+color:#6a00a8;
 }
 
-nav{margin:20px;}
-nav a{margin:0 12px;color:#6a00a8;text-decoration:none;font-weight:bold;}
+/* HEADER */
+header{
+background: linear-gradient(135deg, #6a00a8, #ff2fd1);
+padding:25px 15px;
+}
 
+.logo{
+width:180px;
+display:block;
+margin:auto;
+}
+
+/* NAV */
+nav{
+margin:20px 0;
+}
+
+nav a{
+margin:0 12px;
+text-decoration:none;
+color:#6a00a8;
+font-weight:bold;
+font-size:16px;
+}
+
+nav a:hover{
+text-decoration:underline;
+}
+
+/* TARJETA */
 .container{
-background:linear-gradient(135deg,#6a00a8,#ff2fd1);
+background: linear-gradient(135deg, #6a00a8, #ff2fd1);
 padding:35px;
 border-radius:20px;
 max-width:600px;
 margin:30px auto;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
 color:white;
 }
 
 .container h2{
-font-family:'Lobster',cursive;
+font-family:'Lobster', cursive;
 color:#fff4c2;
-text-shadow:2px 2px 0 #6a00a8;
+margin-top:0;
+text-shadow: 2px 2px 0 #6a00a8;
 }
 
-input{padding:12px;width:85%;margin:10px;border:none;border-radius:8px;}
+.container p{
+color:white;
+}
 
+/* INPUT */
+input{
+padding:12px;
+width:85%;
+margin:10px 0;
+border:none;
+border-radius:8px;
+font-size:15px;
+}
+
+/* BOTÓN */
 button{
 padding:12px 25px;
 background:#fff4c2;
@@ -61,17 +102,68 @@ border:none;
 border-radius:25px;
 font-weight:bold;
 cursor:pointer;
+transition:0.3s;
 }
 
-#qrcode{display:flex;justify-content:center;margin-top:25px;}
-.download{display:none;margin-top:15px;}
+button:hover{
+transform:scale(1.05);
+}
 
+/* QR */
+#qrcode{
+margin-top:25px;
+display:flex;
+justify-content:center;
+}
+
+/* DESCARGA */
+.download-btn{
+display:none;
+margin-top:15px;
+}
+
+/* ADS */
+.ad-box{
+max-width:728px;
+height:90px;
+margin:30px auto;
+background:#ddd;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:10px;
+font-size:14px;
+color:#555;
+}
+
+/* TEXTO */
+section{
+max-width:800px;
+margin:50px auto;
+text-align:left;
+padding:0 25px;
+}
+
+section h2{
+font-family:'Lobster', cursive;
+color:#6a00a8;
+font-size:28px;
+}
+
+section p, section li{
+color:#6a00a8;
+line-height:1.6;
+}
+
+/* FOOTER */
 footer{
-background:linear-gradient(135deg,#6a00a8,#ff2fd1);
+background: linear-gradient(135deg, #6a00a8, #ff2fd1);
 color:#fff4c2;
 padding:20px;
 margin-top:60px;
+font-size:14px;
 }
+
 </style>
 </head>
 
@@ -92,27 +184,68 @@ margin-top:60px;
 <a href="ventajas-codigos-qr.html">Ventajas QR</a>
 </nav>
 
+<!-- ANUNCIO ARRIBA -->
+<div class="ad-box">Espacio publicitario</div>
+
 <div class="container">
-<h2>Generador de Código QR para Enlaces</h2>
-<input id="url" placeholder="https://ejemplo.com">
-<button onclick="gen()">Generar QR</button>
+<h2>Generador de Código QR</h2>
+
+<p>Introduce cualquier enlace y genera tu código QR al instante.</p>
+
+<input type="text" id="url" placeholder="https://ejemplo.com">
+
+<br>
+<button onclick="generateQR()">Generar QR</button>
 
 <div id="qrcode"></div>
-<button class="download" id="d" onclick="down()">Descargar QR</button>
+
+<button id="downloadBtn" class="download-btn" onclick="downloadQR()">Descargar QR</button>
 </div>
 
-<footer>© 2026 qrflow.tech</footer>
+<!-- ANUNCIO ABAJO -->
+<div class="ad-box">Espacio publicitario</div>
+
+<section>
+<h2>¿Qué es un código QR?</h2>
+<p>Un código QR es un tipo de código de barras bidimensional que permite almacenar información como enlaces, contactos o datos de red WiFi.</p>
+
+<h2>¿Para qué sirve?</h2>
+<ul>
+<li>Compartir enlaces fácilmente</li>
+<li>Marketing digital</li>
+<li>Negocios físicos</li>
+<li>Eventos</li>
+</ul>
+
+<h2>Ventajas</h2>
+<p>Son rápidos, fáciles de usar y compatibles con todos los smartphones modernos.</p>
+</section>
+
+<footer>
+© 2026 Generador de Códigos QR Gratis
+</footer>
 
 <script>
-function gen(){
-qrcode.innerHTML="";
-new QRCode(qrcode,{text:url.value,width:200,height:200});
-d.style.display="inline-block";
+function generateQR(){
+document.getElementById("qrcode").innerHTML="";
+
+var url=document.getElementById("url").value;
+
+new QRCode(document.getElementById("qrcode"),{
+text:url,
+width:200,
+height:200
+});
+
+document.getElementById("downloadBtn").style.display="inline-block";
 }
-function down(){
-let img=document.querySelector("#qrcode img");
-let a=document.createElement("a");
-a.href=img.src;a.download="qr.png";a.click();
+
+function downloadQR(){
+var img=document.querySelector("#qrcode img");
+var link=document.createElement("a");
+link.href=img.src;
+link.download="qr.png";
+link.click();
 }
 </script>
 
