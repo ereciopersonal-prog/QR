@@ -2,13 +2,15 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>qrflow.tech | QR Tarjeta</title>
+<title>Generador de Código QR para Tarjeta de Visita</title>
+<meta name="description" content="Crea un código QR para tu tarjeta de visita digital.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="icon" href="LogoQ.png">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-<!-- Google Analytics -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3CQH3G1CM"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -18,24 +20,25 @@ gtag('config', 'G-Z3CQH3G1CM');
 </script>
 
 <style>
-body{font-family:Arial;background:#ece6f2;margin:0;text-align:center;color:#6a00a8;}
-header{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:30px;}
-.logo-main{width:220px;margin:auto;display:block;}
+body{font-family: Arial;background:#ece6f2;margin:0;text-align:center;color:#6a00a8;}
+header{background: linear-gradient(135deg,#6a00a8,#ff2fd1);padding:25px;}
+.logo{width:180px;}
 nav{margin:20px;}
-nav a{margin:6px 10px;color:#6a00a8;font-weight:bold;text-decoration:none;}
-.container{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:30px;border-radius:20px;max-width:600px;margin:auto;color:white;}
-input{padding:12px;width:90%;margin:8px;border:none;border-radius:8px;}
+nav a{margin:0 12px;text-decoration:none;color:#6a00a8;font-weight:bold;}
+.container{background: linear-gradient(135deg,#6a00a8,#ff2fd1);padding:35px;border-radius:20px;max-width:600px;margin:30px auto;color:white;}
+.container h2{font-family:'Lobster',cursive;color:#fff4c2;text-shadow:2px 2px 0 #6a00a8;}
+input{padding:12px;width:85%;margin:8px;border:none;border-radius:8px;}
 button{padding:12px 25px;background:#fff4c2;color:#6a00a8;border:none;border-radius:25px;font-weight:bold;}
 #qrcode{display:flex;justify-content:center;margin-top:25px;}
 .download-btn{display:none;margin-top:15px;}
-.ad-box{margin:30px auto;height:90px;background:#ddd;display:flex;align-items:center;justify-content:center;}
-footer{background:linear-gradient(135deg,#6a00a8,#ff2fd1);color:#fff4c2;padding:20px;margin-top:60px;}
+.ad-box{max-width:728px;height:90px;margin:30px auto;background:#ddd;display:flex;align-items:center;justify-content:center;border-radius:10px;}
+footer{background: linear-gradient(135deg,#6a00a8,#ff2fd1);color:#fff4c2;padding:20px;margin-top:60px;}
 </style>
 </head>
 
 <body>
 
-<header><img src="LogoQ.png" class="logo-main"></header>
+<header><img src="LogoQ.png" class="logo"></header>
 
 <nav>
 <a href="index.html">Inicio</a>
@@ -51,27 +54,40 @@ footer{background:linear-gradient(135deg,#6a00a8,#ff2fd1);color:#fff4c2;padding:
 <div class="ad-box">Espacio publicitario</div>
 
 <div class="container">
-<h2>QR Tarjeta de Contacto</h2>
-<input id="nombre" placeholder="Nombre">
+<h2>Generar QR de Contacto Profesional</h2>
+
+<p>Introduce tus datos y crea un código QR que guarde tu contacto automáticamente.</p>
+
+<input id="nombre" placeholder="Nombre completo">
 <input id="telefono" placeholder="Teléfono">
 <input id="email" placeholder="Email">
 <input id="empresa" placeholder="Empresa">
+
 <button onclick="generateQR()">Generar QR</button>
+
 <div id="qrcode"></div>
 <button id="downloadBtn" class="download-btn" onclick="downloadQR()">Descargar QR</button>
 </div>
 
 <div class="ad-box">Espacio publicitario</div>
 
-<footer>© 2026 qrflow.tech</footer>
+<footer>© 2026 Generador de Códigos QR Gratis</footer>
 
 <script>
 function generateQR(){
 qrcode.innerHTML="";
-var v="BEGIN:VCARD\nVERSION:3.0\nFN:"+nombre.value+"\nTEL:"+telefono.value+"\nEMAIL:"+email.value+"\nORG:"+empresa.value+"\nEND:VCARD";
-new QRCode(qrcode,{text:v,width:200,height:200});
+
+var vcard="BEGIN:VCARD\nVERSION:3.0\n";
+vcard+="FN:"+nombre.value+"\n";
+vcard+="TEL:"+telefono.value+"\n";
+vcard+="EMAIL:"+email.value+"\n";
+vcard+="ORG:"+empresa.value+"\n";
+vcard+="END:VCARD";
+
+new QRCode(qrcode,{text:vcard,width:200,height:200});
 downloadBtn.style.display="inline-block";
 }
+
 function downloadQR(){
 var img=document.querySelector("#qrcode img");
 var a=document.createElement("a");
