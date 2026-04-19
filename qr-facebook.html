@@ -2,91 +2,140 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>qrflow.tech | QR Facebook</title>
+<title>Generador de QR para Facebook Gratis | QRFlow</title>
+<meta name="description" content="Crea un código QR para tu página o perfil de Facebook gratis. Comparte tu Facebook en físico con solo un escaneo. Sin registro.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://qrflow.tech/qr-facebook.html">
+<meta property="og:title" content="Generador de QR para Facebook Gratis | QRFlow">
+<meta property="og:description" content="Crea un código QR para tu página o perfil de Facebook. Compártelo en físico con solo un escaneo.">
+<meta property="og:url" content="https://qrflow.tech/qr-facebook.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://qrflow.tech/LogoQ.png">
 <link rel="icon" href="LogoQ.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-
-<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3CQH3G1CM"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-Z3CQH3G1CM');
-</script>
-
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z3CQH3G1CM');</script>
 <style>
-body{font-family:Arial;background:#ece6f2;margin:0;text-align:center;color:#6a00a8;}
-header{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:30px;}
-.logo-main{width:220px;display:block;margin:auto;}
-nav{margin:20px;}
-nav a{margin:6px 10px;text-decoration:none;color:#6a00a8;font-weight:bold;}
-.container{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:30px;border-radius:20px;max-width:600px;margin:auto;color:white;}
-.container h2{font-family:'Lobster',cursive;color:#fff4c2;}
-input{padding:12px;width:90%;margin:10px;border:none;border-radius:8px;}
-button{padding:12px 25px;background:#fff4c2;color:#6a00a8;border:none;border-radius:25px;font-weight:bold;cursor:pointer;}
-#qrcode{display:flex;justify-content:center;margin-top:25px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Arial,sans-serif;background:#ece6f2;color:#6a00a8;}
+header{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:20px 15px;text-align:center;}
+.logo{width:160px;display:block;margin:auto;}
+nav{background:#fff;box-shadow:0 2px 8px rgba(106,0,168,0.1);position:relative;}
+.nav-inner{max-width:1000px;margin:auto;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 15px;gap:4px;}
+nav a{padding:8px 12px;text-decoration:none;color:#6a00a8;font-weight:bold;font-size:14px;border-radius:20px;transition:background 0.2s;}
+nav a:hover,nav a.active{background:#ece6f2;}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:12px 15px;position:absolute;right:0;top:50%;transform:translateY(-50%);}
+.hamburger span{display:block;width:24px;height:2px;background:#6a00a8;margin:5px 0;transition:0.3s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.nav-menu{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;}
+.ad-box{max-width:728px;margin:25px auto;background:#ddd;display:flex;align-items:center;justify-content:center;border-radius:10px;font-size:13px;color:#888;min-height:90px;padding:10px;}
+.container{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:35px 25px;border-radius:20px;max-width:600px;margin:30px auto;box-shadow:0 10px 25px rgba(0,0,0,0.15);color:white;text-align:center;}
+.container h1{font-family:'Lobster',cursive;color:#fff4c2;margin-top:0;font-size:26px;text-shadow:2px 2px 0 #6a00a8;}
+.container p{color:white;margin:10px 0 20px;}
+input[type="url"]{padding:12px;width:90%;border:none;border-radius:8px;font-size:15px;margin:8px 0;}
+.btn{padding:12px 28px;background:#fff4c2;color:#6a00a8;border:none;border-radius:25px;font-weight:bold;cursor:pointer;font-size:15px;transition:transform 0.2s;margin-top:8px;}
+.btn:hover{transform:scale(1.05);}
+#qrcode{margin-top:25px;display:flex;justify-content:center;}
 .download-btn{display:none;margin-top:15px;}
-.ad-box{margin:30px auto;max-width:728px;height:90px;background:#ddd;display:flex;align-items:center;justify-content:center;border-radius:10px;}
-footer{background:linear-gradient(135deg,#6a00a8,#ff2fd1);color:#fff4c2;padding:20px;margin-top:60px;}
+section{max-width:800px;margin:50px auto;text-align:left;padding:0 25px;}
+section h2{font-family:'Lobster',cursive;color:#6a00a8;font-size:26px;margin-top:35px;}
+section h3{color:#6a00a8;font-size:18px;margin-top:20px;}
+section p,section li{color:#6a00a8;line-height:1.7;font-size:16px;margin-top:8px;}
+section ul{margin-left:20px;margin-top:8px;}
+.other-tools{max-width:800px;margin:40px auto;padding:0 25px;text-align:center;}
+.other-tools h2{font-family:'Lobster',cursive;color:#6a00a8;font-size:22px;margin-bottom:15px;}
+.tools-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.tool-pill{background:linear-gradient(135deg,#6a00a8,#ff2fd1);color:white;padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:14px;transition:transform 0.2s;}
+.tool-pill:hover{transform:scale(1.05);}
+footer{background:linear-gradient(135deg,#6a00a8,#ff2fd1);color:#fff4c2;padding:25px 20px;margin-top:60px;text-align:center;font-size:14px;}
+footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
+@media(max-width:700px){
+  .hamburger{display:block;}
+  .nav-inner{justify-content:flex-start;padding:12px 15px;}
+  .nav-menu{display:none;width:100%;flex-direction:column;align-items:flex-start;padding:0 15px 10px;}
+  .nav-menu.open{display:flex;}
+  nav a{padding:10px 8px;font-size:15px;width:100%;border-radius:8px;}
+  .container{margin:20px 15px;padding:25px 15px;}
+  input[type="url"]{width:100%;}
+}
 </style>
 </head>
-
 <body>
-
-<header>
-<img src="LogoQ.png" class="logo-main">
-</header>
-
+<header><img src="LogoQ.png" class="logo" alt="QRFlow - Generador de códigos QR gratis"></header>
 <nav>
-<a href="index.html">Inicio</a>
-<a href="qr-whatsapp.html">QR WhatsApp</a>
-<a href="qr-wifi.html">QR WiFi</a>
-<a href="qr-instagram.html">QR Instagram</a>
-<a href="qr-facebook.html">QR Facebook</a>
-<a href="qr-tiktok.html">QR TikTok</a>
-<a href="qr-tarjeta.html">QR Tarjeta</a>
-<a href="ventajas-codigos-qr.html">Ventajas QR</a>
+  <div class="nav-inner">
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menú"><span></span><span></span><span></span></button>
+    <div class="nav-menu" id="navMenu">
+      <a href="index.html">Inicio</a>
+      <a href="qr-whatsapp.html">QR WhatsApp</a>
+      <a href="qr-wifi.html">QR WiFi</a>
+      <a href="qr-instagram.html">QR Instagram</a>
+      <a href="qr-facebook.html" class="active">QR Facebook</a>
+      <a href="qr-tiktok.html">QR TikTok</a>
+      <a href="qr-tarjeta.html">QR Tarjeta</a>
+      <a href="ventajas-codigos-qr.html">Ventajas QR</a>
+    </div>
+  </div>
 </nav>
-
-<div class="ad-box">Espacio publicitario</div>
-
+<div class="ad-box"><!-- Adsense --></div>
 <div class="container">
-<h2>Generar Código QR para Facebook</h2>
+  <h1>Generador de QR para Facebook</h1>
+  <p>Introduce el enlace de tu página o perfil de Facebook y obtén tu código QR al instante. Listo para imprimir o compartir.</p>
+  <input type="url" id="url" placeholder="https://facebook.com/tupagina" aria-label="Enlace de tu página de Facebook">
+  <br>
+  <button class="btn" onclick="generateQR()">Generar QR</button>
+  <div id="qrcode"></div>
+  <button id="downloadBtn" class="btn download-btn" onclick="downloadQR()">⬇ Descargar QR</button>
+</div>
+<div class="ad-box"><!-- Adsense --></div>
 
-<p>Introduce tu usuario o enlace de Facebook y crea tu QR al instante.</p>
+<section>
+  <h2>¿Para qué sirve el QR de Facebook?</h2>
+  <p>El código QR de Facebook permite a cualquier persona acceder directamente a tu página, grupo o perfil de Facebook con solo apuntar la cámara del móvil. Es especialmente útil para negocios locales y comercios que quieren aumentar su presencia en Facebook sin que los clientes tengan que buscarte manualmente.</p>
 
-<input id="url" placeholder="https://facebook.com/tuusuario">
+  <h2>Usos habituales del QR de Facebook</h2>
+  <ul>
+    <li><strong>Negocios locales:</strong> incluye el QR en tu entrada, mostrador o menú para ganar seguidores en tu página.</li>
+    <li><strong>Grupos y comunidades:</strong> facilita que nuevos miembros se unan escaneando en vez de buscar.</li>
+    <li><strong>Publicidad impresa:</strong> añade el QR a folletos, flyers o vallas para complementar tu campaña digital.</li>
+    <li><strong>Eventos:</strong> muestra el QR durante el evento para que los asistentes compartan o valoren la página.</li>
+    <li><strong>Tarjetas de visita:</strong> moderniza tu presentación con un QR que lleva directamente a Facebook.</li>
+  </ul>
 
-<button onclick="generateQR()">Generar QR</button>
+  <h2>Cómo obtener el enlace de tu página de Facebook</h2>
+  <p>Entra en tu página de Facebook desde el ordenador, copia la URL de la barra de direcciones del navegador y pégala en el campo del generador. El enlace suele ser del tipo <strong>https://facebook.com/nombredetupagina</strong> o puede contener un número de identificación largo si tu página no tiene URL personalizada. Ambos formatos funcionan correctamente.</p>
+</section>
 
-<div id="qrcode"></div>
-
-<button id="downloadBtn" class="download-btn" onclick="downloadQR()">Descargar QR</button>
+<div class="other-tools">
+  <h2>Otros generadores de QR</h2>
+  <div class="tools-row">
+    <a href="index.html" class="tool-pill">🔗 QR Enlace</a>
+    <a href="qr-whatsapp.html" class="tool-pill">💬 QR WhatsApp</a>
+    <a href="qr-wifi.html" class="tool-pill">📶 QR WiFi</a>
+    <a href="qr-instagram.html" class="tool-pill">📸 QR Instagram</a>
+    <a href="qr-tiktok.html" class="tool-pill">🎵 QR TikTok</a>
+    <a href="qr-tarjeta.html" class="tool-pill">💼 QR Tarjeta</a>
+  </div>
 </div>
 
-<div class="ad-box">Espacio publicitario</div>
-
-<footer>© 2026 qrflow.tech</footer>
-
+<footer>
+  <p>© 2026 QRFlow.tech — Generador de códigos QR gratis</p>
+  <p style="margin-top:8px;"><a href="index.html">Inicio</a><a href="ventajas-codigos-qr.html">Ventajas QR</a></p>
+</footer>
 <script>
+function toggleMenu(){document.querySelector('.hamburger').classList.toggle('open');document.getElementById('navMenu').classList.toggle('open');}
 function generateQR(){
-qrcode.innerHTML="";
-new QRCode(qrcode,{text:url.value,width:200,height:200});
-downloadBtn.style.display="inline-block";
+  var el=document.getElementById('qrcode');el.innerHTML='';
+  var url=document.getElementById('url').value.trim();
+  if(!url){alert('Por favor, introduce el enlace de tu página de Facebook.');return;}
+  new QRCode(el,{text:url,width:200,height:200});
+  document.getElementById('downloadBtn').style.display='inline-block';
 }
-
-function downloadQR(){
-var img=document.querySelector("#qrcode img");
-var a=document.createElement("a");
-a.href=img.src;
-a.download="qr-facebook.png";
-a.click();
-}
+function downloadQR(){var img=document.querySelector('#qrcode img');if(!img)return;var a=document.createElement('a');a.href=img.src;a.download='qr-facebook.png';a.click();}
 </script>
-
 </body>
 </html>
