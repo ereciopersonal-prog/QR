@@ -23,7 +23,7 @@ body{font-family:Arial,sans-serif;background:#ece6f2;color:#6a00a8;}
 header{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:20px 15px;text-align:center;}
 .logo{width:160px;display:block;margin:auto;}
 nav{background:#fff;box-shadow:0 2px 8px rgba(106,0,168,0.1);position:relative;}
-.nav-inner{max-width:1000px;margin:auto;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 15px;gap:4px;}
+.nav-inner{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 15px;gap:4px;}
 nav a{padding:8px 12px;text-decoration:none;color:#6a00a8;font-weight:bold;font-size:14px;border-radius:20px;transition:background 0.2s;}
 nav a:hover,nav a.active{background:#ece6f2;}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:12px 15px;position:absolute;right:0;top:50%;transform:translateY(-50%);}
@@ -36,7 +36,7 @@ nav a:hover,nav a.active{background:#ece6f2;}
 .container{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:35px 25px;border-radius:20px;max-width:600px;margin:30px auto;box-shadow:0 10px 25px rgba(0,0,0,0.15);color:white;text-align:center;}
 .container h1{font-family:'Lobster',cursive;color:#fff4c2;margin-top:0;font-size:26px;text-shadow:2px 2px 0 #6a00a8;}
 .container p{color:white;margin:10px 0 20px;}
-input[type="url"]{padding:12px;width:90%;border:none;border-radius:8px;font-size:15px;margin:8px 0;}
+input[type="url"]{padding:12px;width:90%;border:none;border-radius:8px;font-size:15px;margin:8px auto;display:block;}
 .btn{padding:12px 28px;background:#fff4c2;color:#6a00a8;border:none;border-radius:25px;font-weight:bold;cursor:pointer;font-size:15px;transition:transform 0.2s;margin-top:8px;}
 .btn:hover{transform:scale(1.05);}
 #qrcode{margin-top:25px;display:flex;justify-content:center;}
@@ -46,6 +46,9 @@ section h2{font-family:'Lobster',cursive;color:#6a00a8;font-size:26px;margin-top
 section h3{color:#6a00a8;font-size:18px;margin-top:20px;}
 section p,section li{color:#6a00a8;line-height:1.7;font-size:16px;margin-top:8px;}
 section ul{margin-left:20px;margin-top:8px;}
+.highlight{background:linear-gradient(135deg,#6a00a8,#ff2fd1);color:white;padding:25px 30px;border-radius:16px;margin:30px 0;}
+.highlight h3{color:#fff4c2;font-size:20px;margin-top:0;margin-bottom:10px;}
+.highlight p{color:white;margin-top:0;}
 .other-tools{max-width:800px;margin:40px auto;padding:0 25px;text-align:center;}
 .other-tools h2{font-family:'Lobster',cursive;color:#6a00a8;font-size:22px;margin-bottom:15px;}
 .tools-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
@@ -73,15 +76,18 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
       <a href="index.html">Inicio</a>
       <a href="qr-whatsapp.html">QR WhatsApp</a>
       <a href="qr-wifi.html">QR WiFi</a>
-      <a href="qr-instagram.html">QR Instagram</a>
+      <a href="qr-googlemaps.html">QR Google Maps</a>
       <a href="qr-facebook.html">QR Facebook</a>
       <a href="qr-tiktok.html" class="active">QR TikTok</a>
       <a href="qr-tarjeta.html">QR Tarjeta</a>
+      <a href="qr-eventos.html">QR Eventos</a>
       <a href="ventajas-codigos-qr.html">Ventajas QR</a>
     </div>
   </div>
 </nav>
+
 <div class="ad-box"><!-- Adsense --></div>
+
 <div class="container">
   <h1>Generador de QR para TikTok</h1>
   <p>Introduce el enlace de tu perfil de TikTok y genera tu código QR al instante. Gana seguidores tanto en digital como en físico.</p>
@@ -91,11 +97,17 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
   <div id="qrcode"></div>
   <button id="downloadBtn" class="btn download-btn" onclick="downloadQR()">⬇ Descargar QR</button>
 </div>
+
 <div class="ad-box"><!-- Adsense --></div>
 
 <section>
   <h2>¿Por qué crear un QR para TikTok?</h2>
   <p>TikTok es una de las redes sociales con mayor crecimiento en España y en todo el mundo. Tener un código QR de tu perfil te permite cruzar la barrera entre el mundo físico y el digital: cualquier persona que vea tu negocio, producto o publicidad impresa puede seguirte con un simple escaneo, sin tener que escribir tu usuario en el buscador.</p>
+
+  <div class="highlight">
+    <h3>🎵 El salto del físico al viral en un escaneo</h3>
+    <p>TikTok premia a los creadores que crecen rápido. Cada nuevo seguidor que consigues desde el mundo físico — tu tienda, tus eventos, tu packaging — es alguien que puede ver tu contenido, compartirlo y multiplicar tu alcance orgánico. El QR es el puente más corto entre quien te conoce en persona y quien te sigue en la app.</p>
+  </div>
 
   <h2>Dónde usar tu QR de TikTok</h2>
   <ul>
@@ -107,7 +119,7 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
   </ul>
 
   <h2>Cómo obtener el enlace de tu perfil de TikTok</h2>
-  <p>El enlace de tu perfil de TikTok sigue el formato <strong>https://tiktok.com/@tuusuario</strong>. Puedes encontrarlo abriendo tu perfil desde el navegador de tu móvil o desde TikTok web en el ordenador, y copiando la dirección que aparece en la barra del navegador. Asegúrate de incluir el símbolo @ en el enlace.</p>
+  <p>El enlace de tu perfil sigue el formato <strong>https://tiktok.com/@tuusuario</strong>. Puedes encontrarlo abriendo tu perfil desde el navegador de tu móvil o desde TikTok web en el ordenador, y copiando la dirección que aparece en la barra del navegador. Asegúrate de incluir el símbolo @ en el enlace.</p>
 
   <h3>Tamaño mínimo para imprimir</h3>
   <p>Para garantizar que el código QR sea legible al imprimirlo, usa un tamaño mínimo de 3×3 cm. Si lo vas a usar en packaging o cartelería, opta por 5×5 cm o más para facilitar el escaneo desde distancias mayores.</p>
@@ -119,9 +131,10 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
     <a href="index.html" class="tool-pill">🔗 QR Enlace</a>
     <a href="qr-whatsapp.html" class="tool-pill">💬 QR WhatsApp</a>
     <a href="qr-wifi.html" class="tool-pill">📶 QR WiFi</a>
-    <a href="qr-instagram.html" class="tool-pill">📸 QR Instagram</a>
+    <a href="qr-googlemaps.html" class="tool-pill">⭐ QR Google Maps</a>
     <a href="qr-facebook.html" class="tool-pill">👍 QR Facebook</a>
     <a href="qr-tarjeta.html" class="tool-pill">💼 QR Tarjeta</a>
+    <a href="qr-eventos.html" class="tool-pill">📅 QR Eventos</a>
   </div>
 </div>
 
