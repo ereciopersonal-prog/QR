@@ -7,34 +7,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://qrflow.tech/qr-whatsapp.html">
-
-<!-- Open Graph -->
 <meta property="og:title" content="Generador de QR para WhatsApp Gratis | QRFlow">
 <meta property="og:description" content="Crea un código QR para WhatsApp con mensaje automático. Ideal para negocios y atención al cliente.">
 <meta property="og:url" content="https://qrflow.tech/qr-whatsapp.html">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://qrflow.tech/LogoQ.png">
-
 <link rel="icon" type="image/png" href="LogoQ.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-
-<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3CQH3G1CM"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-Z3CQH3G1CM');
-</script>
-
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z3CQH3G1CM');</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:Arial,sans-serif;background:#ece6f2;color:#6a00a8;}
 header{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:20px 15px;text-align:center;}
 .logo{width:160px;display:block;margin:auto;}
 nav{background:#fff;box-shadow:0 2px 8px rgba(106,0,168,0.1);position:relative;}
-.nav-inner{max-width:1000px;margin:auto;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 15px;gap:4px;}
+.nav-inner{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 15px;gap:4px;}
 nav a{padding:8px 12px;text-decoration:none;color:#6a00a8;font-weight:bold;font-size:14px;border-radius:20px;transition:background 0.2s;}
 nav a:hover,nav a.active{background:#ece6f2;}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:12px 15px;position:absolute;right:0;top:50%;transform:translateY(-50%);}
@@ -47,7 +36,7 @@ nav a:hover,nav a.active{background:#ece6f2;}
 .container{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:35px 25px;border-radius:20px;max-width:600px;margin:30px auto;box-shadow:0 10px 25px rgba(0,0,0,0.15);color:white;text-align:center;}
 .container h1{font-family:'Lobster',cursive;color:#fff4c2;margin-top:0;font-size:26px;text-shadow:2px 2px 0 #6a00a8;}
 .container p{color:white;margin:10px 0 20px;}
-input[type="text"],input[type="tel"],textarea{padding:12px;width:90%;border:none;border-radius:8px;font-size:15px;margin:8px 0;font-family:Arial,sans-serif;}
+input[type="tel"],textarea{padding:12px;width:90%;border:none;border-radius:8px;font-size:15px;margin:8px 0;font-family:Arial,sans-serif;display:block;margin-left:auto;margin-right:auto;}
 textarea{resize:vertical;min-height:80px;}
 .btn{padding:12px 28px;background:#fff4c2;color:#6a00a8;border:none;border-radius:25px;font-weight:bold;cursor:pointer;font-size:15px;transition:transform 0.2s;margin-top:8px;}
 .btn:hover{transform:scale(1.05);}
@@ -58,6 +47,9 @@ section h2{font-family:'Lobster',cursive;color:#6a00a8;font-size:26px;margin-top
 section h3{color:#6a00a8;font-size:18px;margin-top:20px;}
 section p,section li{color:#6a00a8;line-height:1.7;font-size:16px;margin-top:8px;}
 section ul{margin-left:20px;margin-top:8px;}
+.highlight{background:linear-gradient(135deg,#6a00a8,#ff2fd1);color:white;padding:25px 30px;border-radius:16px;margin:30px 0;}
+.highlight h3{color:#fff4c2;font-size:20px;margin-top:0;margin-bottom:10px;}
+.highlight p{color:white;margin-top:0;}
 .other-tools{max-width:800px;margin:40px auto;padding:0 25px;text-align:center;}
 .other-tools h2{font-family:'Lobster',cursive;color:#6a00a8;font-size:22px;margin-bottom:15px;}
 .tools-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
@@ -72,37 +64,30 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
   .nav-menu.open{display:flex;}
   nav a{padding:10px 8px;font-size:15px;width:100%;border-radius:8px;}
   .container{margin:20px 15px;padding:25px 15px;}
-  input[type="text"],input[type="tel"],textarea{width:100%;}
+  input[type="tel"],textarea{width:100%;}
 }
 </style>
 </head>
 <body>
-
-<header>
-  <img src="LogoQ.png" class="logo" alt="QRFlow - Generador de códigos QR gratis">
-</header>
-
+<header><img src="LogoQ.png" class="logo" alt="QRFlow - Generador de códigos QR gratis"></header>
 <nav>
   <div class="nav-inner">
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Menú">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menú"><span></span><span></span><span></span></button>
     <div class="nav-menu" id="navMenu">
       <a href="index.html">Inicio</a>
       <a href="qr-whatsapp.html" class="active">QR WhatsApp</a>
       <a href="qr-wifi.html">QR WiFi</a>
-      <a href="qr-instagram.html">QR Instagram</a>
+      <a href="qr-googlemaps.html">QR Google Maps</a>
       <a href="qr-facebook.html">QR Facebook</a>
       <a href="qr-tiktok.html">QR TikTok</a>
       <a href="qr-tarjeta.html">QR Tarjeta</a>
+      <a href="qr-eventos.html">QR Eventos</a>
       <a href="ventajas-codigos-qr.html">Ventajas QR</a>
     </div>
   </div>
 </nav>
 
-<div class="ad-box">
-  <!-- Adsense: sustituye este comentario por tu bloque de anuncio -->
-</div>
+<div class="ad-box"><!-- Adsense --></div>
 
 <div class="container">
   <h1>Generador de QR para WhatsApp</h1>
@@ -115,13 +100,16 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
   <button id="downloadBtn" class="btn download-btn" onclick="downloadQR()">⬇ Descargar QR</button>
 </div>
 
-<div class="ad-box">
-  <!-- Adsense: sustituye este comentario por tu bloque de anuncio -->
-</div>
+<div class="ad-box"><!-- Adsense --></div>
 
 <section>
   <h2>¿Qué es un QR de WhatsApp?</h2>
   <p>Un código QR de WhatsApp es un código que, al escanearlo con la cámara del móvil, abre directamente una conversación de WhatsApp con el número que hayas configurado. Además, puedes incluir un mensaje automático predefinido, de modo que el usuario solo tenga que pulsar "Enviar".</p>
+
+  <div class="highlight">
+    <h3>💬 El botón de contacto más directo que existe</h3>
+    <p>Si tu cliente tiene que buscar tu número, guardarlo y escribirte, ya has perdido la mitad. Con un QR de WhatsApp solo tiene que escanear y pulsar enviar. Sin fricción, sin esperas, sin excusas para no contactarte.</p>
+  </div>
 
   <h2>¿Para qué sirve el QR de WhatsApp?</h2>
   <p>Es una herramienta muy utilizada por negocios, autónomos y profesionales que quieren facilitar el contacto directo con sus clientes. Algunos usos habituales:</p>
@@ -134,10 +122,17 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
   </ul>
 
   <h2>Cómo usar el generador</h2>
-  <p>El proceso es muy sencillo. Introduce el número de teléfono con el prefijo de país (por ejemplo, 34 para España) seguido del número sin espacios ni guiones. Opcionalmente, añade el mensaje que quieres que aparezca ya escrito cuando el usuario abra WhatsApp. Pulsa "Generar QR" y descarga la imagen.</p>
+  <p>Introduce el número de teléfono con el prefijo de país (por ejemplo, 34 para España) seguido del número sin espacios ni guiones. Opcionalmente, añade el mensaje que quieres que aparezca ya escrito cuando el usuario abra WhatsApp. Pulsa "Generar QR" y descarga la imagen.</p>
 
   <h3>Ejemplo de número correcto</h3>
   <p>Si tu número español es 600 111 222, escribe: <strong>34600111222</strong>. No incluyas el signo + ni espacios.</p>
+
+  <h3>Ideas para el mensaje automático</h3>
+  <ul>
+    <li>"Hola, me gustaría pedir información sobre vuestros servicios."</li>
+    <li>"Buenos días, quería hacer una reserva para esta semana."</li>
+    <li>"Hola, vi vuestro escaparate y me interesa el producto."</li>
+  </ul>
 </section>
 
 <div class="other-tools">
@@ -145,10 +140,11 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
   <div class="tools-row">
     <a href="index.html" class="tool-pill">🔗 QR Enlace</a>
     <a href="qr-wifi.html" class="tool-pill">📶 QR WiFi</a>
-    <a href="qr-instagram.html" class="tool-pill">📸 QR Instagram</a>
+    <a href="qr-googlemaps.html" class="tool-pill">⭐ QR Google Maps</a>
     <a href="qr-facebook.html" class="tool-pill">👍 QR Facebook</a>
     <a href="qr-tiktok.html" class="tool-pill">🎵 QR TikTok</a>
     <a href="qr-tarjeta.html" class="tool-pill">💼 QR Tarjeta</a>
+    <a href="qr-eventos.html" class="tool-pill">📅 QR Eventos</a>
   </div>
 </div>
 
@@ -156,15 +152,10 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
   <p>© 2026 QRFlow.tech — Generador de códigos QR gratis</p>
   <p style="margin-top:8px;"><a href="index.html">Inicio</a><a href="ventajas-codigos-qr.html">Ventajas QR</a></p>
 </footer>
-
 <script>
-function toggleMenu(){
-  document.querySelector('.hamburger').classList.toggle('open');
-  document.getElementById('navMenu').classList.toggle('open');
-}
+function toggleMenu(){document.querySelector('.hamburger').classList.toggle('open');document.getElementById('navMenu').classList.toggle('open');}
 function generateQR(){
-  var el=document.getElementById('qrcode');
-  el.innerHTML='';
+  var el=document.getElementById('qrcode');el.innerHTML='';
   var tel=document.getElementById('telefono').value.trim().replace(/\D/g,'');
   if(!tel){alert('Por favor, introduce un número de teléfono.');return;}
   var msg=document.getElementById('mensaje').value.trim();
@@ -173,10 +164,8 @@ function generateQR(){
   document.getElementById('downloadBtn').style.display='inline-block';
 }
 function downloadQR(){
-  var img=document.querySelector('#qrcode img');
-  if(!img)return;
-  var a=document.createElement('a');
-  a.href=img.src;a.download='qr-whatsapp.png';a.click();
+  var img=document.querySelector('#qrcode img');if(!img)return;
+  var a=document.createElement('a');a.href=img.src;a.download='qr-whatsapp.png';a.click();
 }
 </script>
 </body>
