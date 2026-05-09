@@ -23,7 +23,7 @@ body{font-family:Arial,sans-serif;background:#ece6f2;color:#6a00a8;}
 header{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:20px 15px;text-align:center;}
 .logo{width:160px;display:block;margin:auto;}
 nav{background:#fff;box-shadow:0 2px 8px rgba(106,0,168,0.1);position:relative;}
-.nav-inner{max-width:1000px;margin:auto;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 15px;gap:4px;}
+.nav-inner{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 15px;gap:4px;}
 nav a{padding:8px 12px;text-decoration:none;color:#6a00a8;font-weight:bold;font-size:14px;border-radius:20px;transition:background 0.2s;}
 nav a:hover,nav a.active{background:#ece6f2;}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:12px 15px;position:absolute;right:0;top:50%;transform:translateY(-50%);}
@@ -35,9 +35,9 @@ nav a:hover,nav a.active{background:#ece6f2;}
 .ad-box{max-width:728px;margin:25px auto;background:#ddd;display:flex;align-items:center;justify-content:center;border-radius:10px;font-size:13px;color:#888;min-height:90px;padding:10px;}
 .container{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:35px 25px;border-radius:20px;max-width:600px;margin:30px auto;box-shadow:0 10px 25px rgba(0,0,0,0.15);color:white;text-align:center;}
 .container h1{font-family:'Lobster',cursive;color:#fff4c2;margin-top:0;font-size:26px;text-shadow:2px 2px 0 #6a00a8;}
-.container p{color:white;margin:10px 0 20px;}
-input[type="text"],input[type="tel"],input[type="email"]{padding:12px;width:90%;border:none;border-radius:8px;font-size:15px;margin:6px 0;font-family:Arial,sans-serif;}
-.btn{padding:12px 28px;background:#fff4c2;color:#6a00a8;border:none;border-radius:25px;font-weight:bold;cursor:pointer;font-size:15px;transition:transform 0.2s;margin-top:10px;}
+.container p{color:white;margin:10px 0 15px;}
+input[type="text"],input[type="tel"],input[type="email"]{padding:12px;width:90%;border:none;border-radius:8px;font-size:15px;margin:6px auto;font-family:Arial,sans-serif;display:block;}
+.btn{padding:12px 28px;background:#fff4c2;color:#6a00a8;border:none;border-radius:25px;font-weight:bold;cursor:pointer;font-size:15px;transition:transform 0.2s;margin-top:12px;}
 .btn:hover{transform:scale(1.05);}
 #qrcode{margin-top:25px;display:flex;justify-content:center;}
 .download-btn{display:none;margin-top:15px;}
@@ -46,6 +46,9 @@ section h2{font-family:'Lobster',cursive;color:#6a00a8;font-size:26px;margin-top
 section h3{color:#6a00a8;font-size:18px;margin-top:20px;}
 section p,section li{color:#6a00a8;line-height:1.7;font-size:16px;margin-top:8px;}
 section ul{margin-left:20px;margin-top:8px;}
+.highlight{background:linear-gradient(135deg,#6a00a8,#ff2fd1);color:white;padding:25px 30px;border-radius:16px;margin:30px 0;}
+.highlight h3{color:#fff4c2;font-size:20px;margin-top:0;margin-bottom:10px;}
+.highlight p{color:white;margin-top:0;}
 .other-tools{max-width:800px;margin:40px auto;padding:0 25px;text-align:center;}
 .other-tools h2{font-family:'Lobster',cursive;color:#6a00a8;font-size:22px;margin-bottom:15px;}
 .tools-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
@@ -60,7 +63,7 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
   .nav-menu.open{display:flex;}
   nav a{padding:10px 8px;font-size:15px;width:100%;border-radius:8px;}
   .container{margin:20px 15px;padding:25px 15px;}
-  input{width:100%!important;}
+  input[type="text"],input[type="tel"],input[type="email"]{width:100%;}
 }
 </style>
 </head>
@@ -73,33 +76,41 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
       <a href="index.html">Inicio</a>
       <a href="qr-whatsapp.html">QR WhatsApp</a>
       <a href="qr-wifi.html">QR WiFi</a>
-      <a href="qr-instagram.html">QR Instagram</a>
+      <a href="qr-googlemaps.html">QR Google Maps</a>
       <a href="qr-facebook.html">QR Facebook</a>
       <a href="qr-tiktok.html">QR TikTok</a>
       <a href="qr-tarjeta.html" class="active">QR Tarjeta</a>
+      <a href="qr-eventos.html">QR Eventos</a>
       <a href="ventajas-codigos-qr.html">Ventajas QR</a>
     </div>
   </div>
 </nav>
+
 <div class="ad-box"><!-- Adsense --></div>
+
 <div class="container">
   <h1>QR de Tarjeta de Visita Digital</h1>
-  <p>Introduce tus datos profesionales y crea un código QR que guarda tu contacto automáticamente en el móvil de quien lo escanee.</p>
-  <input type="text" id="nombre" placeholder="Nombre completo" aria-label="Nombre completo">
+  <p>Introduce tus datos y crea un QR que guarda tu contacto automáticamente en el móvil de quien lo escanee. Sin papel, sin errores.</p>
+  <input type="text" id="nombre" placeholder="Nombre completo *" aria-label="Nombre completo">
   <input type="tel" id="telefono" placeholder="Teléfono (ej: +34600111222)" aria-label="Teléfono">
   <input type="email" id="email" placeholder="Email profesional" aria-label="Email">
   <input type="text" id="empresa" placeholder="Empresa u organización" aria-label="Empresa">
   <input type="text" id="web" placeholder="Página web (opcional)" aria-label="Página web">
-  <br>
   <button class="btn" onclick="generateQR()">Generar QR</button>
   <div id="qrcode"></div>
   <button id="downloadBtn" class="btn download-btn" onclick="downloadQR()">⬇ Descargar QR</button>
 </div>
+
 <div class="ad-box"><!-- Adsense --></div>
 
 <section>
   <h2>¿Qué es una tarjeta de visita digital con QR?</h2>
-  <p>Una tarjeta de visita digital con QR utiliza el formato vCard, un estándar universal para el intercambio de datos de contacto. Al escanear el código QR, el teléfono del receptor ofrece automáticamente guardar tus datos (nombre, teléfono, email, empresa y web) en su agenda de contactos. Es el equivalente digital de entregar una tarjeta de visita, pero sin papel y sin que nadie tenga que escribir nada manualmente.</p>
+  <p>Una tarjeta de visita digital con QR utiliza el formato vCard, un estándar universal para el intercambio de datos de contacto. Al escanear el código QR, el teléfono del receptor ofrece automáticamente guardar tus datos en su agenda de contactos. Es el equivalente digital de entregar una tarjeta de visita, pero sin papel y sin que nadie tenga que escribir nada manualmente.</p>
+
+  <div class="highlight">
+    <h3>💼 Tu contacto en su agenda en 3 segundos</h3>
+    <p>¿Cuántas tarjetas de visita que has repartido han acabado en un cajón o en la basura? Con el QR, tus datos van directamente a la agenda del móvil de tu contacto. Sin perder el papel, sin errores al escribir el número, sin excusas para no guardarte. Es la forma más moderna y efectiva de hacer networking.</p>
+  </div>
 
   <h2>Ventajas de la tarjeta de visita con QR</h2>
   <ul>
@@ -113,8 +124,17 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
   <h2>Cómo usar tu QR de tarjeta de visita</h2>
   <p>Una vez descargado el código QR, puedes imprimirlo en tu tarjeta de visita tradicional, añadirlo a tu firma de email, incluirlo en tu portfolio digital o mostrarlo en pantalla durante reuniones. Cualquier persona con un smartphone puede escanear el QR y guardar tus datos de contacto al instante.</p>
 
+  <h3>Dónde incluir tu QR de contacto</h3>
+  <ul>
+    <li>Impreso en tu tarjeta de visita física junto a tus datos.</li>
+    <li>En tu firma de email como imagen o enlace.</li>
+    <li>En tu perfil de LinkedIn o portfolio online.</li>
+    <li>En presentaciones de empresa o propuestas comerciales.</li>
+    <li>En tu stand de feria o exposición.</li>
+  </ul>
+
   <h3>Campos opcionales</h3>
-  <p>No es obligatorio rellenar todos los campos. Puedes generar el QR solo con tu nombre y teléfono si prefieres compartir información mínima, o añadir también tu web para un perfil más completo.</p>
+  <p>Solo el nombre es obligatorio. Puedes generar el QR únicamente con tu nombre y teléfono si prefieres compartir información mínima, o completar todos los campos para un perfil más profesional.</p>
 </section>
 
 <div class="other-tools">
@@ -123,9 +143,10 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
     <a href="index.html" class="tool-pill">🔗 QR Enlace</a>
     <a href="qr-whatsapp.html" class="tool-pill">💬 QR WhatsApp</a>
     <a href="qr-wifi.html" class="tool-pill">📶 QR WiFi</a>
-    <a href="qr-instagram.html" class="tool-pill">📸 QR Instagram</a>
+    <a href="qr-googlemaps.html" class="tool-pill">⭐ QR Google Maps</a>
     <a href="qr-facebook.html" class="tool-pill">👍 QR Facebook</a>
     <a href="qr-tiktok.html" class="tool-pill">🎵 QR TikTok</a>
+    <a href="qr-eventos.html" class="tool-pill">📅 QR Eventos</a>
   </div>
 </div>
 
