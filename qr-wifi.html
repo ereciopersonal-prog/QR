@@ -2,29 +2,11 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Generador de QR para WiFi Gratis | QRFlow.tech</title>
-<meta name="description" content="Genera un código QR para tu red WiFi de forma gratuita. Tus visitas podrán conectarse sin escribir la contraseña. Rápido, seguro y sin registro en QRFlow.">
+<title>Generador de QR para WiFi Gratis | QRFlow</title>
+<meta name="description" content="Genera un código QR para tu red WiFi. Tus visitas podrán conectarse sin escribir la contraseña. Gratis, rápido y sin registro.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://qrflow.tech/qr-wifi.html">
-
-<!-- Marcado de Datos Estructurados (JSON-LD) para SEO -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Generador QR WiFi - QRFlow",
-  "url": "https://qrflow.tech/qr-wifi.html",
-  "description": "Herramienta gratuita para crear códigos QR de conexión WiFi automática.",
-  "applicationCategory": "Utility",
-  "offers": {
-    "@type": "Offer",
-    "price": "0.00",
-    "priceCurrency": "EUR"
-  }
-}
-</script>
-
 <meta property="og:title" content="Generador de QR para WiFi Gratis | QRFlow">
 <meta property="og:description" content="Genera un código QR para tu red WiFi. Tus visitas podrán conectarse sin escribir la contraseña.">
 <meta property="og:url" content="https://qrflow.tech/qr-wifi.html">
@@ -41,7 +23,7 @@ body{font-family:Arial,sans-serif;background:#ece6f2;color:#6a00a8;}
 header{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:20px 15px;text-align:center;}
 .logo{width:160px;display:block;margin:auto;}
 nav{background:#fff;box-shadow:0 2px 8px rgba(106,0,168,0.1);position:relative;}
-.nav-inner{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 15px;gap:4px;}
+.nav-inner{max-width:1000px;margin:auto;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 15px;gap:4px;}
 nav a{padding:8px 12px;text-decoration:none;color:#6a00a8;font-weight:bold;font-size:14px;border-radius:20px;transition:background 0.2s;}
 nav a:hover,nav a.active{background:#ece6f2;}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:12px 15px;position:absolute;right:0;top:50%;transform:translateY(-50%);}
@@ -92,8 +74,9 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
       <a href="index.html">Inicio</a>
       <a href="qr-whatsapp.html">QR WhatsApp</a>
       <a href="qr-wifi.html" class="active">QR WiFi</a>
-      <a href="qr-maps.html">QR Google Maps</a>
-      <a href="qr-calendar.html">QR Calendar</a>
+      <a href="qr-instagram.html">QR Instagram</a>
+      <a href="qr-facebook.html">QR Facebook</a>
+      <a href="qr-tiktok.html">QR TikTok</a>
       <a href="qr-tarjeta.html">QR Tarjeta</a>
       <a href="ventajas-codigos-qr.html">Ventajas QR</a>
     </div>
@@ -104,7 +87,7 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
 
 <div class="container">
   <h1>Generador de QR para WiFi</h1>
-  <p>Conecta a tus visitas al instante. Solo tienen que escanear el código para acceder a tu red WiFi sin escribir contraseñas.</p>
+  <p>Rellena los datos de tu red. Tus visitas podrán conectarse al WiFi escaneando el código, sin escribir la contraseña.</p>
   <input type="text" id="ssid" placeholder="Nombre de la red (SSID)" aria-label="Nombre de la red WiFi">
   <input type="text" id="password" placeholder="Contraseña del WiFi" aria-label="Contraseña WiFi">
   <select id="security" aria-label="Tipo de seguridad">
@@ -113,43 +96,47 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
     <option value="">Sin contraseña</option>
   </select>
   <br>
-  <button class="btn" onclick="generateQR()">Generar QR WiFi</button>
+  <button class="btn" onclick="generateQR()">Generar QR</button>
   <div id="qrcode"></div>
-  <button id="downloadBtn" class="btn download-btn" onclick="downloadQR()">⬇ Descargar Código QR</button>
+  <button id="downloadBtn" class="btn download-btn" onclick="downloadQR()">⬇ Descargar QR</button>
 </div>
 
 <div class="ad-box"><!-- Adsense --></div>
 
 <section>
-  <h2>¿Cómo funciona un código QR para WiFi?</h2>
-  <p>Un código QR de WiFi almacena de forma segura las credenciales de tu red inalámbrica. Al escanearlo con la cámara del móvil, el dispositivo reconoce automáticamente el <strong>SSID (nombre de red)</strong>, la <strong>contraseña</strong> y el <strong>tipo de cifrado</strong>, ofreciendo al usuario la opción de conectarse con un solo toque. Es la solución perfecta para evitar errores al escribir claves largas y complejas.</p>
+  <h2>¿Qué es un QR de WiFi?</h2>
+  <p>Un código QR de WiFi contiene los datos de tu red inalámbrica (nombre, contraseña y tipo de seguridad) codificados de forma que cualquier smartphone puede leerlos y conectarse automáticamente sin que el usuario tenga que escribir nada. Es especialmente útil en hogares, cafeterías, hoteles, consultas y cualquier espacio con WiFi para visitas.</p>
 
-  <h2>Ventajas de usar QRFlow para tu red WiFi</h2>
+  <h2>Beneficios de usar un QR para tu WiFi</h2>
   <ul>
-    <li><strong>Experiencia de Usuario:</strong> Ideal para clientes en hostelería, eventos o invitados en casa.</li>
-    <li><strong>Seguridad:</strong> Comparte el acceso sin necesidad de revelar o anotar tu contraseña en papeles visibles.</li>
-    <li><strong>Compatibilidad Total:</strong> Funciona de forma nativa en iPhone (iOS 11+) y Android (10+).</li>
-    <li><strong>Sin Registro:</strong> Genera y descarga tu QR al instante, totalmente gratis.</li>
-    <li><strong>Profesionalidad:</strong> Imprime tu QR y colócalo en marcos o menús para dar una imagen moderna a tu negocio.</li>
+    <li><strong>Comodidad para tus visitas:</strong> nadie tiene que buscar la contraseña ni pedírtela.</li>
+    <li><strong>Seguridad:</strong> puedes compartir el acceso sin revelar verbalmente la contraseña.</li>
+    <li><strong>Imagen profesional:</strong> ideal para negocios como cafeterías, peluquerías u oficinas.</li>
+    <li><strong>Compatible:</strong> funciona en Android (versión 10 o superior) e iPhone (iOS 11 o superior).</li>
+    <li><strong>Sin apps adicionales:</strong> basta con la cámara del teléfono.</li>
   </ul>
 
-  <h3>Consejos para imprimir tu QR WiFi</h3>
-  <p>Una vez generado el código en <strong>QRFlow.tech</strong>, te recomendamos descargarlo e imprimirlo en un tamaño mínimo de 3x3 cm. Asegúrate de colocarlo en una zona bien iluminada. En entornos profesionales como cafeterías, es muy efectivo colocar el QR en cada mesa o junto al mostrador principal.</p>
+  <h2>Cómo usar el QR WiFi una vez generado</h2>
+  <p>Descarga el código QR e imprímelo. Puedes enmarcarlo y colocarlo en un sitio visible, incluirlo en tu carta o menú digital, o enviarlo por WhatsApp a tus invitados antes de que lleguen. En Android, al escanear el QR aparece un botón de "Conectar". En iPhone, aparece una notificación de unirse a la red.</p>
+
+  <h3>Tipo de seguridad: ¿cuál elegir?</h3>
+  <p>La mayoría de routers modernos usan WPA2. Si no sabes cuál tiene el tuyo, elige "WPA/WPA2" — es la opción correcta en el 95% de los casos. WEP es un protocolo antiguo y menos seguro. La opción "Sin contraseña" es para redes WiFi abiertas, como las de lugares públicos.</p>
 </section>
 
 <div class="other-tools">
-  <h2>Otras herramientas gratuitas</h2>
+  <h2>Otros generadores de QR</h2>
   <div class="tools-row">
-    <a href="index.html" class="tool-pill">🔗 QR Enlace Web</a>
+    <a href="index.html" class="tool-pill">🔗 QR Enlace</a>
     <a href="qr-whatsapp.html" class="tool-pill">💬 QR WhatsApp</a>
-    <a href="qr-maps.html" class="tool-pill">📍 QR Google Maps</a>
-    <a href="qr-calendar.html" class="tool-pill">📅 QR Calendar</a>
-    <a href="qr-tarjeta.html" class="tool-pill">💼 QR Tarjeta VCard</a>
+    <a href="qr-instagram.html" class="tool-pill">📸 QR Instagram</a>
+    <a href="qr-facebook.html" class="tool-pill">👍 QR Facebook</a>
+    <a href="qr-tiktok.html" class="tool-pill">🎵 QR TikTok</a>
+    <a href="qr-tarjeta.html" class="tool-pill">💼 QR Tarjeta</a>
   </div>
 </div>
 
 <footer>
-  <p>© 2026 QRFlow.tech — Herramientas QR Profesionales y Gratuitas</p>
+  <p>© 2026 QRFlow.tech — Generador de códigos QR gratis</p>
   <p style="margin-top:8px;"><a href="index.html">Inicio</a><a href="ventajas-codigos-qr.html">Ventajas QR</a></p>
 </footer>
 
@@ -169,7 +156,7 @@ function generateQR(){
 function downloadQR(){
   var img=document.querySelector('#qrcode img');
   if(!img)return;
-  var a=document.createElement('a');a.href=img.src;a.download='qr-wifi-qrflow.png';a.click();
+  var a=document.createElement('a');a.href=img.src;a.download='qr-wifi.png';a.click();
 }
 </script>
 </body>
