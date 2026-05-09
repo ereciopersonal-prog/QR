@@ -23,7 +23,7 @@ body{font-family:Arial,sans-serif;background:#ece6f2;color:#6a00a8;}
 header{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:20px 15px;text-align:center;}
 .logo{width:160px;display:block;margin:auto;}
 nav{background:#fff;box-shadow:0 2px 8px rgba(106,0,168,0.1);position:relative;}
-.nav-inner{max-width:1000px;margin:auto;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 15px;gap:4px;}
+.nav-inner{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 15px;gap:4px;}
 nav a{padding:8px 12px;text-decoration:none;color:#6a00a8;font-weight:bold;font-size:14px;border-radius:20px;transition:background 0.2s;}
 nav a:hover,nav a.active{background:#ece6f2;}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:12px 15px;position:absolute;right:0;top:50%;transform:translateY(-50%);}
@@ -36,7 +36,7 @@ nav a:hover,nav a.active{background:#ece6f2;}
 .container{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:35px 25px;border-radius:20px;max-width:600px;margin:30px auto;box-shadow:0 10px 25px rgba(0,0,0,0.15);color:white;text-align:center;}
 .container h1{font-family:'Lobster',cursive;color:#fff4c2;margin-top:0;font-size:26px;text-shadow:2px 2px 0 #6a00a8;}
 .container p{color:white;margin:10px 0 20px;}
-input[type="text"],select{padding:12px;width:90%;border:none;border-radius:8px;font-size:15px;margin:8px 0;font-family:Arial,sans-serif;}
+input[type="text"],select{padding:12px;width:90%;border:none;border-radius:8px;font-size:15px;margin:8px auto;font-family:Arial,sans-serif;display:block;}
 select{color:#333;background:white;}
 .btn{padding:12px 28px;background:#fff4c2;color:#6a00a8;border:none;border-radius:25px;font-weight:bold;cursor:pointer;font-size:15px;transition:transform 0.2s;margin-top:8px;}
 .btn:hover{transform:scale(1.05);}
@@ -47,6 +47,9 @@ section h2{font-family:'Lobster',cursive;color:#6a00a8;font-size:26px;margin-top
 section h3{color:#6a00a8;font-size:18px;margin-top:20px;}
 section p,section li{color:#6a00a8;line-height:1.7;font-size:16px;margin-top:8px;}
 section ul{margin-left:20px;margin-top:8px;}
+.highlight{background:linear-gradient(135deg,#6a00a8,#ff2fd1);color:white;padding:25px 30px;border-radius:16px;margin:30px 0;}
+.highlight h3{color:#fff4c2;font-size:20px;margin-top:0;margin-bottom:10px;}
+.highlight p{color:white;margin-top:0;}
 .other-tools{max-width:800px;margin:40px auto;padding:0 25px;text-align:center;}
 .other-tools h2{font-family:'Lobster',cursive;color:#6a00a8;font-size:22px;margin-bottom:15px;}
 .tools-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
@@ -74,10 +77,11 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
       <a href="index.html">Inicio</a>
       <a href="qr-whatsapp.html">QR WhatsApp</a>
       <a href="qr-wifi.html" class="active">QR WiFi</a>
-      <a href="qr-instagram.html">QR Instagram</a>
+      <a href="qr-googlemaps.html">QR Google Maps</a>
       <a href="qr-facebook.html">QR Facebook</a>
       <a href="qr-tiktok.html">QR TikTok</a>
       <a href="qr-tarjeta.html">QR Tarjeta</a>
+      <a href="qr-eventos.html">QR Eventos</a>
       <a href="ventajas-codigos-qr.html">Ventajas QR</a>
     </div>
   </div>
@@ -95,7 +99,6 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
     <option value="WEP">WEP</option>
     <option value="">Sin contraseña</option>
   </select>
-  <br>
   <button class="btn" onclick="generateQR()">Generar QR</button>
   <div id="qrcode"></div>
   <button id="downloadBtn" class="btn download-btn" onclick="downloadQR()">⬇ Descargar QR</button>
@@ -106,6 +109,11 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
 <section>
   <h2>¿Qué es un QR de WiFi?</h2>
   <p>Un código QR de WiFi contiene los datos de tu red inalámbrica (nombre, contraseña y tipo de seguridad) codificados de forma que cualquier smartphone puede leerlos y conectarse automáticamente sin que el usuario tenga que escribir nada. Es especialmente útil en hogares, cafeterías, hoteles, consultas y cualquier espacio con WiFi para visitas.</p>
+
+  <div class="highlight">
+    <h3>📶 Más seguro que dar la contraseña en voz alta</h3>
+    <p>Cuando das tu contraseña de voz o en un papel, cualquiera puede anotarla, fotografiarla o compartirla. Con el QR, el cliente se conecta al instante sin ver ni tocar la contraseña. Puedes cambiarla cuando quieras y simplemente generar un nuevo QR — sin tener que avisar a nadie.</p>
+  </div>
 
   <h2>Beneficios de usar un QR para tu WiFi</h2>
   <ul>
@@ -121,6 +129,15 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
 
   <h3>Tipo de seguridad: ¿cuál elegir?</h3>
   <p>La mayoría de routers modernos usan WPA2. Si no sabes cuál tiene el tuyo, elige "WPA/WPA2" — es la opción correcta en el 95% de los casos. WEP es un protocolo antiguo y menos seguro. La opción "Sin contraseña" es para redes WiFi abiertas, como las de lugares públicos.</p>
+
+  <h3>¿Dónde colocar el QR de WiFi en tu negocio?</h3>
+  <ul>
+    <li>Enmarcado en la barra o mostrador, a la vista del cliente.</li>
+    <li>En cada mesa, junto al menú o la carta.</li>
+    <li>En la entrada o recepción del local.</li>
+    <li>En la sala de espera de consultas, clínicas o peluquerías.</li>
+    <li>En habitaciones de hotel o apartamentos turísticos.</li>
+  </ul>
 </section>
 
 <div class="other-tools">
@@ -128,10 +145,11 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
   <div class="tools-row">
     <a href="index.html" class="tool-pill">🔗 QR Enlace</a>
     <a href="qr-whatsapp.html" class="tool-pill">💬 QR WhatsApp</a>
-    <a href="qr-instagram.html" class="tool-pill">📸 QR Instagram</a>
+    <a href="qr-googlemaps.html" class="tool-pill">⭐ QR Google Maps</a>
     <a href="qr-facebook.html" class="tool-pill">👍 QR Facebook</a>
     <a href="qr-tiktok.html" class="tool-pill">🎵 QR TikTok</a>
     <a href="qr-tarjeta.html" class="tool-pill">💼 QR Tarjeta</a>
+    <a href="qr-eventos.html" class="tool-pill">📅 QR Eventos</a>
   </div>
 </div>
 
@@ -139,12 +157,10 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
   <p>© 2026 QRFlow.tech — Generador de códigos QR gratis</p>
   <p style="margin-top:8px;"><a href="index.html">Inicio</a><a href="ventajas-codigos-qr.html">Ventajas QR</a></p>
 </footer>
-
 <script>
 function toggleMenu(){document.querySelector('.hamburger').classList.toggle('open');document.getElementById('navMenu').classList.toggle('open');}
 function generateQR(){
-  var el=document.getElementById('qrcode');
-  el.innerHTML='';
+  var el=document.getElementById('qrcode');el.innerHTML='';
   var ssid=document.getElementById('ssid').value.trim();
   if(!ssid){alert('Por favor, introduce el nombre de la red WiFi.');return;}
   var pw=document.getElementById('password').value;
@@ -154,8 +170,7 @@ function generateQR(){
   document.getElementById('downloadBtn').style.display='inline-block';
 }
 function downloadQR(){
-  var img=document.querySelector('#qrcode img');
-  if(!img)return;
+  var img=document.querySelector('#qrcode img');if(!img)return;
   var a=document.createElement('a');a.href=img.src;a.download='qr-wifi.png';a.click();
 }
 </script>
