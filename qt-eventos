@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Generador de QR para Eventos y Google Calendar | QRFlow</title>
+<meta name="description" content="Crea un código QR para que tus invitados guarden tu evento en Google Calendar con un escaneo. Ideal para bodas, conferencias, citas y eventos de empresa. Gratis y sin registro.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://qrflow.tech/qr-eventos.html">
+<meta property="og:title" content="Generador de QR para Eventos y Google Calendar | QRFlow">
+<meta property="og:description" content="Crea un QR para que tus invitados guarden tu evento en Google Calendar con un escaneo. Bodas, conferencias, citas y más.">
+<meta property="og:url" content="https://qrflow.tech/qr-eventos.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://qrflow.tech/LogoQ.png">
+<link rel="icon" href="LogoQ.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3CQH3G1CM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z3CQH3G1CM');</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Arial,sans-serif;background:#ece6f2;color:#6a00a8;}
+header{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:20px 15px;text-align:center;}
+.logo{width:160px;display:block;margin:auto;}
+nav{background:#fff;box-shadow:0 2px 8px rgba(106,0,168,0.1);position:relative;}
+.nav-inner{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 15px;gap:4px;}
+nav a{padding:8px 12px;text-decoration:none;color:#6a00a8;font-weight:bold;font-size:14px;border-radius:20px;transition:background 0.2s;}
+nav a:hover,nav a.active{background:#ece6f2;}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:12px 15px;position:absolute;right:0;top:50%;transform:translateY(-50%);}
+.hamburger span{display:block;width:24px;height:2px;background:#6a00a8;margin:5px 0;transition:0.3s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.nav-menu{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;}
+.ad-box{max-width:728px;margin:25px auto;background:#ddd;display:flex;align-items:center;justify-content:center;border-radius:10px;font-size:13px;color:#888;min-height:90px;padding:10px;}
+.container{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:35px 25px;border-radius:20px;max-width:600px;margin:30px auto;box-shadow:0 10px 25px rgba(0,0,0,0.15);color:white;text-align:center;}
+.container h1{font-family:'Lobster',cursive;color:#fff4c2;margin-top:0;font-size:26px;text-shadow:2px 2px 0 #6a00a8;}
+.container p{color:white;margin:10px 0 15px;}
+.form-label{display:block;color:#fff4c2;font-size:13px;font-weight:bold;margin:12px 0 4px;text-align:left;width:90%;margin-left:auto;margin-right:auto;}
+input[type="text"],input[type="date"],input[type="time"],textarea{padding:12px;width:90%;border:none;border-radius:8px;font-size:15px;margin:0 auto 4px;font-family:Arial,sans-serif;display:block;}
+textarea{resize:vertical;min-height:70px;}
+.row-2{display:flex;gap:10px;width:90%;margin:0 auto 4px;}
+.row-2 input{width:50%;margin:0;}
+.btn{padding:12px 28px;background:#fff4c2;color:#6a00a8;border:none;border-radius:25px;font-weight:bold;cursor:pointer;font-size:15px;transition:transform 0.2s;margin-top:15px;}
+.btn:hover{transform:scale(1.05);}
+#qrcode{margin-top:25px;display:flex;justify-content:center;}
+.download-btn{display:none;margin-top:15px;}
+section{max-width:800px;margin:50px auto;text-align:left;padding:0 25px;}
+section h2{font-family:'Lobster',cursive;color:#6a00a8;font-size:26px;margin-top:35px;}
+section h3{color:#6a00a8;font-size:18px;margin-top:20px;}
+section p,section li{color:#6a00a8;line-height:1.7;font-size:16px;margin-top:8px;}
+section ul,section ol{margin-left:20px;margin-top:8px;}
+.highlight{background:linear-gradient(135deg,#6a00a8,#ff2fd1);color:white;padding:25px 30px;border-radius:16px;margin:30px 0;}
+.highlight h3{color:#fff4c2;font-size:20px;margin-top:0;margin-bottom:10px;}
+.highlight p{color:white;margin-top:0;}
+.use-cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin:25px 0;}
+.use-case{background:white;border-radius:12px;padding:20px;box-shadow:0 4px 12px rgba(106,0,168,0.1);border-top:3px solid #ff2fd1;}
+.use-case .emoji{font-size:28px;display:block;margin-bottom:8px;}
+.use-case h3{color:#6a00a8;font-size:15px;margin:0 0 6px;}
+.use-case p{color:#6a00a8;font-size:14px;margin:0;line-height:1.5;}
+.other-tools{max-width:800px;margin:40px auto;padding:0 25px;text-align:center;}
+.other-tools h2{font-family:'Lobster',cursive;color:#6a00a8;font-size:22px;margin-bottom:15px;}
+.tools-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.tool-pill{background:linear-gradient(135deg,#6a00a8,#ff2fd1);color:white;padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:14px;transition:transform 0.2s;}
+.tool-pill:hover{transform:scale(1.05);}
+footer{background:linear-gradient(135deg,#6a00a8,#ff2fd1);color:#fff4c2;padding:25px 20px;margin-top:60px;text-align:center;font-size:14px;}
+footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
+@media(max-width:700px){
+  .hamburger{display:block;}
+  .nav-inner{justify-content:flex-start;padding:12px 15px;}
+  .nav-menu{display:none;width:100%;flex-direction:column;align-items:flex-start;padding:0 15px 10px;}
+  .nav-menu.open{display:flex;}
+  nav a{padding:10px 8px;font-size:15px;width:100%;border-radius:8px;}
+  .container{margin:20px 15px;padding:25px 15px;}
+  input[type="text"],input[type="date"],input[type="time"],textarea{width:100%;}
+  .row-2{width:100%;flex-direction:column;}
+  .row-2 input{width:100%;}
+  .use-cases{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<header><img src="LogoQ.png" class="logo" alt="QRFlow - Generador de códigos QR gratis"></header>
+<nav>
+  <div class="nav-inner">
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menú"><span></span><span></span><span></span></button>
+    <div class="nav-menu" id="navMenu">
+      <a href="index.html">Inicio</a>
+      <a href="qr-whatsapp.html">QR WhatsApp</a>
+      <a href="qr-wifi.html">QR WiFi</a>
+      <a href="qr-googlemaps.html">QR Google Maps</a>
+      <a href="qr-facebook.html">QR Facebook</a>
+      <a href="qr-tiktok.html">QR TikTok</a>
+      <a href="qr-tarjeta.html">QR Tarjeta</a>
+      <a href="qr-eventos.html" class="active">QR Eventos</a>
+      <a href="ventajas-codigos-qr.html">Ventajas QR</a>
+    </div>
+  </div>
+</nav>
+
+<div class="ad-box"><!-- Adsense --></div>
+
+<div class="container">
+  <h1>QR para Guardar tu Evento</h1>
+  <p>Rellena los datos de tu evento y genera un QR. Quien lo escanee podrá añadirlo a Google Calendar con un solo toque.</p>
+
+  <label class="form-label">📌 Nombre del evento *</label>
+  <input type="text" id="titulo" placeholder="Ej: Reunión de equipo / Boda de Ana y Carlos">
+
+  <label class="form-label">📅 Fecha y hora de inicio *</label>
+  <div class="row-2">
+    <input type="date" id="fechaInicio">
+    <input type="time" id="horaInicio" value="10:00">
+  </div>
+
+  <label class="form-label">🏁 Fecha y hora de fin</label>
+  <div class="row-2">
+    <input type="date" id="fechaFin">
+    <input type="time" id="horaFin" value="11:00">
+  </div>
+
+  <label class="form-label">📍 Lugar (opcional)</label>
+  <input type="text" id="lugar" placeholder="Ej: Calle Gran Vía 1, Madrid">
+
+  <label class="form-label">📝 Descripción (opcional)</label>
+  <textarea id="descripcion" placeholder="Ej: Trae el documento firmado. Aparcamiento gratuito en el edificio."></textarea>
+
+  <button class="btn" onclick="generateQR()">Generar QR</button>
+  <div id="qrcode"></div>
+  <button id="downloadBtn" class="btn download-btn" onclick="downloadQR()">⬇ Descargar QR</button>
+</div>
+
+<div class="ad-box"><!-- Adsense --></div>
+
+<section>
+  <h2>¿Para qué sirve el QR de eventos?</h2>
+  <p>Organizar un evento implica asegurarse de que los asistentes recuerden cuándo y dónde es. Los grupos de WhatsApp se llenan de mensajes, los emails se pierden en la bandeja de entrada y los recordatorios en papel acaban en la basura. El QR de eventos elimina todo ese ruido: el asistente escanea, confirma y el evento queda guardado para siempre en su Google Calendar, con alarma incluida.</p>
+
+  <div class="highlight">
+    <h3>📅 La invitación más moderna que puedes enviar</h3>
+    <p>Imprime el QR en tu invitación de boda, en el cartel de tu conferencia o en el flyer de tu próximo evento. Cualquier persona con un smartphone Android o iPhone puede escanearlo y guardar el evento en su calendario en menos de 10 segundos. Sin apps, sin formularios, sin complicaciones.</p>
+  </div>
+
+  <h2>Usos perfectos para el QR de eventos</h2>
+  <div class="use-cases">
+    <div class="use-case">
+      <span class="emoji">💍</span>
+      <h3>Bodas</h3>
+      <p>Incluye el QR en las invitaciones para que los invitados guarden la fecha y el lugar automáticamente.</p>
+    </div>
+    <div class="use-case">
+      <span class="emoji">🎤</span>
+      <h3>Conferencias y ponencias</h3>
+      <p>Pon el QR en el programa o en la pantalla de bienvenida para que los asistentes añadan la sesión a su agenda.</p>
+    </div>
+    <div class="use-case">
+      <span class="emoji">🏢</span>
+      <h3>Reuniones de empresa</h3>
+      <p>Genera un QR por reunión y compártelo por email o Slack para que nadie olvide el horario.</p>
+    </div>
+    <div class="use-case">
+      <span class="emoji">🎉</span>
+      <h3>Fiestas y celebraciones</h3>
+      <p>Cumpleaños, despedidas, eventos privados — el QR hace de recordatorio automático para todos tus invitados.</p>
+    </div>
+    <div class="use-case">
+      <span class="emoji">🛒</span>
+      <h3>Promociones con fecha</h3>
+      <p>Añade el QR a tus campañas para que los clientes guarden la fecha de tu oferta, lanzamiento o apertura.</p>
+    </div>
+    <div class="use-case">
+      <span class="emoji">🎓</span>
+      <h3>Formación y cursos</h3>
+      <p>Profesores y formadores: genera un QR por sesión y que tus alumnos nunca vuelvan a olvidar el horario de clase.</p>
+    </div>
+  </div>
+
+  <h2>Cómo funciona el QR de eventos</h2>
+  <p>Al rellenar el formulario y pulsar "Generar QR", QRFlow crea un enlace especial de Google Calendar que contiene toda la información del evento: título, fecha, hora, lugar y descripción. Ese enlace se convierte en un código QR descargable.</p>
+  <p>Cuando alguien escanea el QR con su móvil, se abre automáticamente Google Calendar con todos los datos del evento ya rellenados. Solo tiene que pulsar "Guardar" y el evento queda añadido a su calendario personal, con las notificaciones que tenga configuradas por defecto.</p>
+
+  <h3>¿Funciona en iPhone?</h3>
+  <p>Sí, aunque iPhone usa iCloud Calendar por defecto, el enlace de Google Calendar funciona perfectamente en Safari y Chrome para iOS. El usuario puede elegir en qué calendario guardar el evento.</p>
+
+  <h2>Consejos para sacarle el máximo partido</h2>
+  <ul>
+    <li>Añade siempre la dirección completa en el campo "Lugar" — Google Calendar la convierte automáticamente en un enlace a Maps.</li>
+    <li>Usa la descripción para incluir información clave: cómo llegar, qué traer, enlace de acceso a videollamada, etc.</li>
+    <li>Para eventos recurrentes, genera un QR por cada sesión con sus fechas exactas.</li>
+    <li>Imprime el QR en un tamaño mínimo de 3×3 cm para garantizar que sea escaneable desde cualquier distancia.</li>
+  </ul>
+</section>
+
+<div class="other-tools">
+  <h2>Otros generadores de QR</h2>
+  <div class="tools-row">
+    <a href="index.html" class="tool-pill">🔗 QR Enlace</a>
+    <a href="qr-whatsapp.html" class="tool-pill">💬 QR WhatsApp</a>
+    <a href="qr-wifi.html" class="tool-pill">📶 QR WiFi</a>
+    <a href="qr-googlemaps.html" class="tool-pill">⭐ QR Google Maps</a>
+    <a href="qr-facebook.html" class="tool-pill">👍 QR Facebook</a>
+    <a href="qr-tiktok.html" class="tool-pill">🎵 QR TikTok</a>
+    <a href="qr-tarjeta.html" class="tool-pill">💼 QR Tarjeta</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 QRFlow.tech — Generador de códigos QR gratis</p>
+  <p style="margin-top:8px;"><a href="index.html">Inicio</a><a href="ventajas-codigos-qr.html">Ventajas QR</a></p>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector('.hamburger').classList.toggle('open');document.getElementById('navMenu').classList.toggle('open');}
+
+function formatDateTime(date,time){
+  if(!date)return'';
+  var d=date.replace(/-/g,'');
+  var t=time?time.replace(':','')+'00':'000000';
+  return d+'T'+t;
+}
+
+function generateQR(){
+  var el=document.getElementById('qrcode');
+  el.innerHTML='';
+  var titulo=document.getElementById('titulo').value.trim();
+  if(!titulo){alert('Por favor, introduce el nombre del evento.');return;}
+  var fechaInicio=document.getElementById('fechaInicio').value;
+  if(!fechaInicio){alert('Por favor, introduce la fecha de inicio.');return;}
+  var horaInicio=document.getElementById('horaInicio').value||'00:00';
+  var fechaFin=document.getElementById('fechaFin').value||fechaInicio;
+  var horaFin=document.getElementById('horaFin').value||horaInicio;
+  var lugar=document.getElementById('lugar').value.trim();
+  var desc=document.getElementById('descripcion').value.trim();
+
+  var inicio=formatDateTime(fechaInicio,horaInicio);
+  var fin=formatDateTime(fechaFin,horaFin);
+
+  var url='https://calendar.google.com/calendar/render?action=TEMPLATE';
+  url+='&text='+encodeURIComponent(titulo);
+  url+='&dates='+inicio+'/'+fin;
+  if(lugar)url+='&location='+encodeURIComponent(lugar);
+  if(desc)url+='&details='+encodeURIComponent(desc);
+
+  new QRCode(el,{text:url,width:200,height:200});
+  document.getElementById('downloadBtn').style.display='inline-block';
+}
+
+function downloadQR(){
+  var img=document.querySelector('#qrcode img');
+  if(!img)return;
+  var a=document.createElement('a');
+  a.href=img.src;a.download='qr-evento.png';a.click();
+}
+</script>
+</body>
+</html>
