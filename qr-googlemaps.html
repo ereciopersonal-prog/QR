@@ -15,8 +15,11 @@
 <link rel="icon" href="LogoQ.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3CQH3G1CM"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z3CQH3G1CM');</script>
+<!-- Monetag -->
+<script src="https://quge5.com/88/tag.min.js" data-zone="238845" async data-cfasync="false"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:Arial,sans-serif;background:#ece6f2;color:#6a00a8;}
@@ -32,11 +35,10 @@ nav a:hover,nav a.active{background:#ece6f2;}
 .hamburger.open span:nth-child(2){opacity:0;}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 .nav-menu{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;}
-.ad-box{max-width:728px;margin:25px auto;background:#ddd;display:flex;align-items:center;justify-content:center;border-radius:10px;font-size:13px;color:#888;min-height:90px;padding:10px;}
 .container{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:35px 25px;border-radius:20px;max-width:600px;margin:30px auto;box-shadow:0 10px 25px rgba(0,0,0,0.15);color:white;text-align:center;}
 .container h1{font-family:'Lobster',cursive;color:#fff4c2;margin-top:0;font-size:26px;text-shadow:2px 2px 0 #6a00a8;}
 .container p{color:white;margin:10px 0 15px;}
-input[type="url"],input[type="text"]{padding:12px;width:90%;border:none;border-radius:8px;font-size:15px;margin:8px 0;}
+input[type="url"],input[type="text"]{padding:12px;width:90%;border:none;border-radius:8px;font-size:15px;margin:8px auto;display:block;}
 .btn{padding:12px 28px;background:#fff4c2;color:#6a00a8;border:none;border-radius:25px;font-weight:bold;cursor:pointer;font-size:15px;transition:transform 0.2s;margin-top:8px;}
 .btn:hover{transform:scale(1.05);}
 #qrcode{margin-top:25px;display:flex;justify-content:center;}
@@ -90,12 +92,9 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
   </div>
 </nav>
 
-<div class="ad-box"><!-- Adsense --></div>
-
 <div class="container">
   <h1>QR para Reseñas de Google Maps</h1>
   <p>¿Tu negocio merece más estrellas? Crea un QR que lleva a tus clientes directamente a escribir una reseña. Sin búsquedas, sin excusas.</p>
-
   <div class="steps-box">
     <p>📍 ¿Cómo obtener tu enlace de reseñas?</p>
     <ol>
@@ -105,15 +104,12 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
       <li>Pégala aquí abajo y genera tu QR</li>
     </ol>
   </div>
-
   <input type="url" id="url" placeholder="https://maps.google.com/..." aria-label="Enlace de tu ficha de Google Maps">
   <br>
   <button class="btn" onclick="generateQR()">Generar QR</button>
   <div id="qrcode"></div>
   <button id="downloadBtn" class="btn download-btn" onclick="downloadQR()">⬇ Descargar QR</button>
 </div>
-
-<div class="ad-box"><!-- Adsense --></div>
 
 <section>
   <h2>Las reseñas de Google son el boca a boca del siglo XXI</h2>
@@ -136,7 +132,6 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
   </ul>
 
   <h2>Cómo obtener el enlace directo a tus reseñas de Google</h2>
-  <p>Hay dos formas de conseguir el enlace correcto:</p>
 
   <h3>Opción A — Desde Google Maps en el móvil</h3>
   <ol>
@@ -153,9 +148,6 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
     <li>En el panel principal verás la opción "Obtener más reseñas".</li>
     <li>Google te da directamente el enlace corto — ese es el que más funciona.</li>
   </ol>
-
-  <h2>¿Qué tipo de QR genera QRFlow para Google Maps?</h2>
-  <p>QRFlow genera un código QR estándar con el enlace que tú introduces. Al escanearlo, el móvil abre directamente la página de reseñas de tu negocio en Google Maps, sin pasos intermedios. El usuario solo tiene que escribir su opinión y publicarla. Compatible con Android e iPhone, sin necesidad de instalar ninguna app adicional.</p>
 </section>
 
 <div class="other-tools">
