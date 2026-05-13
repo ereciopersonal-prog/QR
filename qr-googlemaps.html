@@ -2,14 +2,14 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Generador de QR para Reseñas de Google Maps | QRFlow</title>
-<meta name="description" content="Crea un código QR que lleva directamente a las reseñas de tu negocio en Google Maps. Consigue más valoraciones de 5 estrellas con un simple escaneo. Gratis y sin registro.">
+<title>Generador de QR para WiFi Gratis | QRFlow</title>
+<meta name="description" content="Genera un código QR para tu red WiFi. Tus visitas podrán conectarse sin escribir la contraseña. Gratis, rápido y sin registro.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://qrflow.tech/qr-googlemaps.html">
-<meta property="og:title" content="Generador de QR para Reseñas de Google Maps | QRFlow">
-<meta property="og:description" content="Crea un QR que lleva directo a las reseñas de tu negocio en Google Maps. Más valoraciones de 5 estrellas con un escaneo.">
-<meta property="og:url" content="https://qrflow.tech/qr-googlemaps.html">
+<link rel="canonical" href="https://qrflow.tech/qr-wifi.html">
+<meta property="og:title" content="Generador de QR para WiFi Gratis | QRFlow">
+<meta property="og:description" content="Genera un código QR para tu red WiFi. Tus visitas podrán conectarse sin escribir la contraseña.">
+<meta property="og:url" content="https://qrflow.tech/qr-wifi.html">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://qrflow.tech/LogoQ.png">
 <link rel="icon" href="LogoQ.png">
@@ -18,8 +18,6 @@
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3CQH3G1CM"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z3CQH3G1CM');</script>
-<!-- Monetag -->
-<script src="https://quge5.com/88/tag.min.js" data-zone="238845" async data-cfasync="false"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:Arial,sans-serif;background:#ece6f2;color:#6a00a8;}
@@ -37,21 +35,18 @@ nav a:hover,nav a.active{background:#ece6f2;}
 .nav-menu{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;}
 .container{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:35px 25px;border-radius:20px;max-width:600px;margin:30px auto;box-shadow:0 10px 25px rgba(0,0,0,0.15);color:white;text-align:center;}
 .container h1{font-family:'Lobster',cursive;color:#fff4c2;margin-top:0;font-size:26px;text-shadow:2px 2px 0 #6a00a8;}
-.container p{color:white;margin:10px 0 15px;}
-input[type="url"],input[type="text"]{padding:12px;width:90%;border:none;border-radius:8px;font-size:15px;margin:8px auto;display:block;}
+.container p{color:white;margin:10px 0 20px;}
+input[type="text"],select{padding:12px;width:90%;border:none;border-radius:8px;font-size:15px;margin:8px auto;font-family:Arial,sans-serif;display:block;}
+select{color:#333;background:white;}
 .btn{padding:12px 28px;background:#fff4c2;color:#6a00a8;border:none;border-radius:25px;font-weight:bold;cursor:pointer;font-size:15px;transition:transform 0.2s;margin-top:8px;}
 .btn:hover{transform:scale(1.05);}
 #qrcode{margin-top:25px;display:flex;justify-content:center;}
 .download-btn{display:none;margin-top:15px;}
-.steps-box{background:rgba(255,255,255,0.15);border-radius:12px;padding:15px 20px;margin:15px 0;text-align:left;}
-.steps-box p{color:#fff4c2;font-weight:bold;margin-bottom:8px;font-size:14px;}
-.steps-box ol{margin-left:18px;}
-.steps-box li{color:white;font-size:13px;line-height:1.7;}
 section{max-width:800px;margin:50px auto;text-align:left;padding:0 25px;}
 section h2{font-family:'Lobster',cursive;color:#6a00a8;font-size:26px;margin-top:35px;}
 section h3{color:#6a00a8;font-size:18px;margin-top:20px;}
 section p,section li{color:#6a00a8;line-height:1.7;font-size:16px;margin-top:8px;}
-section ul,section ol{margin-left:20px;margin-top:8px;}
+section ul{margin-left:20px;margin-top:8px;}
 .highlight{background:linear-gradient(135deg,#6a00a8,#ff2fd1);color:white;padding:25px 30px;border-radius:16px;margin:30px 0;}
 .highlight h3{color:#fff4c2;font-size:20px;margin-top:0;margin-bottom:10px;}
 .highlight p{color:white;margin-top:0;}
@@ -69,7 +64,7 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
   .nav-menu.open{display:flex;}
   nav a{padding:10px 8px;font-size:15px;width:100%;border-radius:8px;}
   .container{margin:20px 15px;padding:25px 15px;}
-  input[type="url"],input[type="text"]{width:100%;}
+  input[type="text"],select{width:100%;}
 }
 </style>
 </head>
@@ -81,8 +76,8 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
     <div class="nav-menu" id="navMenu">
       <a href="index.html">Inicio</a>
       <a href="qr-whatsapp.html">QR WhatsApp</a>
-      <a href="qr-wifi.html">QR WiFi</a>
-      <a href="qr-googlemaps.html" class="active">QR Google Maps</a>
+      <a href="qr-wifi.html" class="active">QR WiFi</a>
+      <a href="qr-googlemaps.html">QR Google Maps</a>
       <a href="qr-facebook.html">QR Facebook</a>
       <a href="qr-tiktok.html">QR TikTok</a>
       <a href="qr-tarjeta.html">QR Tarjeta</a>
@@ -93,61 +88,52 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
 </nav>
 
 <div class="container">
-  <h1>QR para Reseñas de Google Maps</h1>
-  <p>¿Tu negocio merece más estrellas? Crea un QR que lleva a tus clientes directamente a escribir una reseña. Sin búsquedas, sin excusas.</p>
-  <div class="steps-box">
-    <p>📍 ¿Cómo obtener tu enlace de reseñas?</p>
-    <ol>
-      <li>Busca tu negocio en Google Maps</li>
-      <li>Haz clic en "Más reseñas" o en las estrellas</li>
-      <li>Copia la URL de la barra del navegador</li>
-      <li>Pégala aquí abajo y genera tu QR</li>
-    </ol>
-  </div>
-  <input type="url" id="url" placeholder="https://maps.google.com/..." aria-label="Enlace de tu ficha de Google Maps">
-  <br>
+  <h1>Generador de QR para WiFi</h1>
+  <p>Rellena los datos de tu red. Tus visitas podrán conectarse al WiFi escaneando el código, sin escribir la contraseña.</p>
+  <input type="text" id="ssid" placeholder="Nombre de la red (SSID)" aria-label="Nombre de la red WiFi">
+  <input type="text" id="password" placeholder="Contraseña del WiFi" aria-label="Contraseña WiFi">
+  <select id="security" aria-label="Tipo de seguridad">
+    <option value="WPA">WPA / WPA2 (recomendado)</option>
+    <option value="WEP">WEP</option>
+    <option value="">Sin contraseña</option>
+  </select>
   <button class="btn" onclick="generateQR()">Generar QR</button>
   <div id="qrcode"></div>
   <button id="downloadBtn" class="btn download-btn" onclick="downloadQR()">⬇ Descargar QR</button>
 </div>
 
 <section>
-  <h2>Las reseñas de Google son el boca a boca del siglo XXI</h2>
-  <p>El 93% de los consumidores leen reseñas online antes de visitar un negocio local. Una estrella más en Google Maps puede suponer un aumento de hasta un 9% en los ingresos de un negocio. Y sin embargo, la mayoría de clientes satisfechos nunca dejan reseña — no porque no quieran, sino porque no saben cómo llegar fácilmente al formulario.</p>
-  <p>Ahí es donde entra el QR de Google Maps. Colócalo en el lugar justo y en el momento adecuado — cuando el cliente acaba de vivir una buena experiencia — y la barrera desaparece: escanea, escribe, publica. En menos de un minuto tienes una nueva reseña de 5 estrellas.</p>
+  <h2>¿Qué es un QR de WiFi?</h2>
+  <p>Un código QR de WiFi contiene los datos de tu red inalámbrica (nombre, contraseña y tipo de seguridad) codificados de forma que cualquier smartphone puede leerlos y conectarse automáticamente sin que el usuario tenga que escribir nada. Es especialmente útil en hogares, cafeterías, hoteles, consultas y cualquier espacio con WiFi para visitas.</p>
 
   <div class="highlight">
-    <h3>⭐ El truco que usan los negocios que tienen 500+ reseñas</h3>
-    <p>No es magia ni compran reseñas. Simplemente piden. Un cartel junto a la caja, una pegatina en la puerta o una tarjeta en la mesa con el QR y el mensaje "¿Te ha gustado? Cuéntaselo a Google" multiplica las reseñas orgánicas por 5 o más. Es la estrategia más efectiva y más barata del marketing local.</p>
+    <h3>📶 Más seguro que dar la contraseña en voz alta</h3>
+    <p>Cuando das tu contraseña de voz o en un papel, cualquiera puede anotarla, fotografiarla o compartirla. Con el QR, el cliente se conecta al instante sin ver ni tocar la contraseña. Puedes cambiarla cuando quieras y simplemente generar un nuevo QR — sin tener que avisar a nadie.</p>
   </div>
 
-  <h2>Dónde colocar tu QR de reseñas Google</h2>
+  <h2>Beneficios de usar un QR para tu WiFi</h2>
   <ul>
-    <li><strong>Junto a la caja o mostrador:</strong> el momento del pago es el punto de máxima satisfacción del cliente.</li>
-    <li><strong>En la puerta de salida:</strong> lo último que ve el cliente antes de irse.</li>
-    <li><strong>En el ticket o factura:</strong> con un mensaje como "¿Satisfecho? Déjanos tu opinión en Google".</li>
-    <li><strong>En la mesa o barra:</strong> ideal para restaurantes, cafeterías y bares.</li>
-    <li><strong>En el packaging o bolsa:</strong> para tiendas físicas y comercios.</li>
-    <li><strong>En tus redes sociales:</strong> comparte el QR en stories para que tus seguidores te valoren.</li>
+    <li><strong>Comodidad para tus visitas:</strong> nadie tiene que buscar la contraseña ni pedírtela.</li>
+    <li><strong>Seguridad:</strong> puedes compartir el acceso sin revelar verbalmente la contraseña.</li>
+    <li><strong>Imagen profesional:</strong> ideal para negocios como cafeterías, peluquerías u oficinas.</li>
+    <li><strong>Compatible:</strong> funciona en Android (versión 10 o superior) e iPhone (iOS 11 o superior).</li>
+    <li><strong>Sin apps adicionales:</strong> basta con la cámara del teléfono.</li>
   </ul>
 
-  <h2>Cómo obtener el enlace directo a tus reseñas de Google</h2>
+  <h2>Cómo usar el QR WiFi una vez generado</h2>
+  <p>Descarga el código QR e imprímelo. Puedes enmarcarlo y colocarlo en un sitio visible, incluirlo en tu carta o menú digital, o enviarlo por WhatsApp a tus invitados antes de que lleguen. En Android, al escanear el QR aparece un botón de "Conectar". En iPhone, aparece una notificación de unirse a la red.</p>
 
-  <h3>Opción A — Desde Google Maps en el móvil</h3>
-  <ol>
-    <li>Abre Google Maps y busca tu negocio.</li>
-    <li>Toca el nombre de tu negocio para abrir la ficha.</li>
-    <li>Desplázate hasta la sección de reseñas y toca "Ver todas las reseñas".</li>
-    <li>Pulsa el botón de compartir y copia el enlace.</li>
-  </ol>
+  <h3>Tipo de seguridad: ¿cuál elegir?</h3>
+  <p>La mayoría de routers modernos usan WPA2. Si no sabes cuál tiene el tuyo, elige "WPA/WPA2" — es la opción correcta en el 95% de los casos. WEP es un protocolo antiguo y menos seguro. La opción "Sin contraseña" es para redes WiFi abiertas, como las de lugares públicos.</p>
 
-  <h3>Opción B — Desde Google Business Profile</h3>
-  <ol>
-    <li>Entra en business.google.com con tu cuenta de Google.</li>
-    <li>Selecciona tu negocio.</li>
-    <li>En el panel principal verás la opción "Obtener más reseñas".</li>
-    <li>Google te da directamente el enlace corto — ese es el que más funciona.</li>
-  </ol>
+  <h3>¿Dónde colocar el QR de WiFi en tu negocio?</h3>
+  <ul>
+    <li>Enmarcado en la barra o mostrador, a la vista del cliente.</li>
+    <li>En cada mesa, junto al menú o la carta.</li>
+    <li>En la entrada o recepción del local.</li>
+    <li>En la sala de espera de consultas, clínicas o peluquerías.</li>
+    <li>En habitaciones de hotel o apartamentos turísticos.</li>
+  </ul>
 </section>
 
 <div class="other-tools">
@@ -155,7 +141,7 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
   <div class="tools-row">
     <a href="index.html" class="tool-pill">🔗 QR Enlace</a>
     <a href="qr-whatsapp.html" class="tool-pill">💬 QR WhatsApp</a>
-    <a href="qr-wifi.html" class="tool-pill">📶 QR WiFi</a>
+    <a href="qr-googlemaps.html" class="tool-pill">⭐ QR Google Maps</a>
     <a href="qr-facebook.html" class="tool-pill">👍 QR Facebook</a>
     <a href="qr-tiktok.html" class="tool-pill">🎵 QR TikTok</a>
     <a href="qr-tarjeta.html" class="tool-pill">💼 QR Tarjeta</a>
@@ -171,12 +157,18 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
 function toggleMenu(){document.querySelector('.hamburger').classList.toggle('open');document.getElementById('navMenu').classList.toggle('open');}
 function generateQR(){
   var el=document.getElementById('qrcode');el.innerHTML='';
-  var url=document.getElementById('url').value.trim();
-  if(!url){alert('Por favor, introduce el enlace de tu ficha de Google Maps.');return;}
-  new QRCode(el,{text:url,width:200,height:200});
+  var ssid=document.getElementById('ssid').value.trim();
+  if(!ssid){alert('Por favor, introduce el nombre de la red WiFi.');return;}
+  var pw=document.getElementById('password').value;
+  var sec=document.getElementById('security').value;
+  var wifi='WIFI:T:'+sec+';S:'+ssid+';P:'+pw+';;';
+  new QRCode(el,{text:wifi,width:200,height:200});
   document.getElementById('downloadBtn').style.display='inline-block';
 }
-function downloadQR(){var img=document.querySelector('#qrcode img');if(!img)return;var a=document.createElement('a');a.href=img.src;a.download='qr-googlemaps.png';a.click();}
+function downloadQR(){
+  var img=document.querySelector('#qrcode img');if(!img)return;
+  var a=document.createElement('a');a.href=img.src;a.download='qr-wifi.png';a.click();
+}
 </script>
 </body>
 </html>
