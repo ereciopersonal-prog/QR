@@ -15,8 +15,11 @@
 <link rel="icon" type="image/png" href="LogoQ.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3CQH3G1CM"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z3CQH3G1CM');</script>
+<!-- Monetag -->
+<script src="https://quge5.com/88/tag.min.js" data-zone="238845" async data-cfasync="false"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:Arial,sans-serif;background:#ece6f2;color:#6a00a8;}
@@ -32,11 +35,10 @@ nav a:hover,nav a.active{background:#ece6f2;}
 .hamburger.open span:nth-child(2){opacity:0;}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 .nav-menu{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;}
-.ad-box{max-width:728px;margin:25px auto;background:#ddd;display:flex;align-items:center;justify-content:center;border-radius:10px;font-size:13px;color:#888;min-height:90px;padding:10px;}
 .container{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:35px 25px;border-radius:20px;max-width:600px;margin:30px auto;box-shadow:0 10px 25px rgba(0,0,0,0.15);color:white;text-align:center;}
 .container h1{font-family:'Lobster',cursive;color:#fff4c2;margin-top:0;font-size:26px;text-shadow:2px 2px 0 #6a00a8;}
 .container p{color:white;margin:10px 0 20px;}
-input[type="tel"],textarea{padding:12px;width:90%;border:none;border-radius:8px;font-size:15px;margin:8px 0;font-family:Arial,sans-serif;display:block;margin-left:auto;margin-right:auto;}
+input[type="tel"],textarea{padding:12px;width:90%;border:none;border-radius:8px;font-size:15px;margin:8px auto;font-family:Arial,sans-serif;display:block;}
 textarea{resize:vertical;min-height:80px;}
 .btn{padding:12px 28px;background:#fff4c2;color:#6a00a8;border:none;border-radius:25px;font-weight:bold;cursor:pointer;font-size:15px;transition:transform 0.2s;margin-top:8px;}
 .btn:hover{transform:scale(1.05);}
@@ -87,8 +89,6 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
   </div>
 </nav>
 
-<div class="ad-box"><!-- Adsense --></div>
-
 <div class="container">
   <h1>Generador de QR para WhatsApp</h1>
   <p>Introduce el número y el mensaje. Cualquiera que escanee el QR abrirá WhatsApp con ese mensaje listo para enviar.</p>
@@ -100,8 +100,6 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
   <button id="downloadBtn" class="btn download-btn" onclick="downloadQR()">⬇ Descargar QR</button>
 </div>
 
-<div class="ad-box"><!-- Adsense --></div>
-
 <section>
   <h2>¿Qué es un QR de WhatsApp?</h2>
   <p>Un código QR de WhatsApp es un código que, al escanearlo con la cámara del móvil, abre directamente una conversación de WhatsApp con el número que hayas configurado. Además, puedes incluir un mensaje automático predefinido, de modo que el usuario solo tenga que pulsar "Enviar".</p>
@@ -112,7 +110,6 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
   </div>
 
   <h2>¿Para qué sirve el QR de WhatsApp?</h2>
-  <p>Es una herramienta muy utilizada por negocios, autónomos y profesionales que quieren facilitar el contacto directo con sus clientes. Algunos usos habituales:</p>
   <ul>
     <li><strong>Atención al cliente:</strong> coloca el QR en tu escaparate o tarjeta y recibe consultas al instante.</li>
     <li><strong>Restaurantes y bares:</strong> permite hacer pedidos o reservas por WhatsApp escaneando el menú.</li>
