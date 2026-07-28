@@ -15,8 +15,11 @@
 <link rel="icon" href="LogoQ.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3CQH3G1CM"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z3CQH3G1CM');</script>
+<!-- Monetag -->
+<script src="https://quge5.com/88/tag.min.js" data-zone="239045" async data-cfasync="false"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:Arial,sans-serif;background:#ece6f2;color:#6a00a8;}
@@ -32,7 +35,6 @@ nav a:hover,nav a.active{background:#ece6f2;}
 .hamburger.open span:nth-child(2){opacity:0;}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 .nav-menu{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;}
-.ad-box{max-width:728px;margin:25px auto;background:#ddd;display:flex;align-items:center;justify-content:center;border-radius:10px;font-size:13px;color:#888;min-height:90px;padding:10px;}
 .container{background:linear-gradient(135deg,#6a00a8,#ff2fd1);padding:35px 25px;border-radius:20px;max-width:600px;margin:30px auto;box-shadow:0 10px 25px rgba(0,0,0,0.15);color:white;text-align:center;}
 .container h1{font-family:'Lobster',cursive;color:#fff4c2;margin-top:0;font-size:26px;text-shadow:2px 2px 0 #6a00a8;}
 .container p{color:white;margin:10px 0 20px;}
@@ -86,8 +88,6 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
   </div>
 </nav>
 
-<div class="ad-box"><!-- Adsense --></div>
-
 <div class="container">
   <h1>Generador de QR para Facebook</h1>
   <p>Introduce el enlace de tu página o perfil de Facebook y obtén tu código QR al instante. Listo para imprimir o compartir.</p>
@@ -97,8 +97,6 @@ footer a{color:#fff4c2;text-decoration:none;margin:0 10px;}
   <div id="qrcode"></div>
   <button id="downloadBtn" class="btn download-btn" onclick="downloadQR()">⬇ Descargar QR</button>
 </div>
-
-<div class="ad-box"><!-- Adsense --></div>
 
 <section>
   <h2>¿Para qué sirve el QR de Facebook?</h2>
